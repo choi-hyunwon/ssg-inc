@@ -207,7 +207,7 @@
         </table>
     </div>
 
-	 <div class="con_tit">
+	<div class="con_tit">
         <h3>공통 정보 관리</h3>
     </div>
 
