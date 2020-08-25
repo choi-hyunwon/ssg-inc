@@ -372,10 +372,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>SYS050008_2</td>
+                    <td>SYS050008_popup</td>
                     <td class="left">[컨텐츠 관리] 이벤트관리 - 레이어팝업</td>
                     <td>
-                        <button class="s_btn" onclick="location.href='#/part2/SYS050008_2'">화면보기</button>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050008_popup'">화면보기</button>
                     </td>
                 </tr>
                 <tr>
@@ -400,10 +400,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>SYS050015_2</td>
+                    <td>SYS050015_popup</td>
                     <td class="left">[고객센터 관리] FAQ 관리 - 레이어팝업</td>
                     <td>
-                        <button class="s_btn" onclick="location.href='#/part2/SYS050015_2'">화면보기</button>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050015_popup'">화면보기</button>
                     </td>
                 </tr>
                 <tr>

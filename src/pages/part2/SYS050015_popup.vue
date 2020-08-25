@@ -231,7 +231,7 @@
 				<h2>FAQ 관리</h2>
 			</div>
 			<div class="flex grow">
-				<div class="form_table flexItem">
+				<div class="form_table list flexItem">
 					<div class="con_tit">
 						<h3>FAQ 분류 목록</h3>
 						<button type="button" class="s_btn">&utrif;</button>
@@ -283,7 +283,7 @@
 					<span class="smallNotice">※ 분류는 최대 8개까지만 사용 설정이 가능합니다.</span>
 				</div>
 
-				<div class="flexItem form_table">
+				<div class="flexItem form_table list">
 					<div class="con_tit">
 						<h3>언어별 분류명</h3>
 					</div>

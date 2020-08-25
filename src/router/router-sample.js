@@ -257,9 +257,9 @@ export default {
 				component: () => import('@/pages/part2/SYS050008')
 			},
 			{
-				path: '/part2/SYS050008_2',
+				path: '/part2/SYS050008_popup',
 				meta : {},
-				component: () => import('@/pages/part2/SYS050008_2')
+				component: () => import('@/pages/part2/SYS050008_popup')
 			},
 
 			{
@@ -305,9 +305,9 @@ export default {
 			},
 			
 			{
-				path: '/part2/SYS050015_2',
+				path: '/part2/SYS050015_popup',
 				meta : {},
-				component: () => import('@/pages/part2/SYS050015_2')
+				component: () => import('@/pages/part2/SYS050015_popup')
 			}
 			
 						
