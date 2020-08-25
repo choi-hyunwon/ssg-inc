@@ -51,6 +51,8 @@
                     <td>
                         <select>
                             <option>전체</option>
+                            <option>노출</option>
+                            <option>미노출</option>
                         </select>
                     </td>
                 </tr>
@@ -59,9 +61,17 @@
     </div>
 
     <div class="con_tit">
-        <button class="floatRight s_btn">게시 관리</button>
+		<select class="floatRight">
+			<option>5개씩보기</option>
+			<option>10개씩보기</option>
+			<option>20개씩보기</option>
+			<option>30개씩보기</option>
+			<option>40개씩보기</option>
+			<option>50개씩보기</option>
+		</select>
         <h3>이벤트 목록</h3>
         <p class="num">[총 30 건]</p>
+        <button class="s_btn marginLeft10">게시 관리</button>
     </div>
 
     <div class="form_table list">
@@ -208,76 +218,6 @@
         <a class="last">&gt;&gt;</a>
     </div>
 
-    <!-- <div class="con_tit">
-        <h3>배너 상세</h3>
-    </div>
-
-    <div class="form_table">
-        <table>
-            <colgroup>
-                <col style="width:100px" />
-                <col style="width:100px" />
-                <col style="width:auto" />
-                <col style="width:100px" />
-                <col style="width:auto" />
-            </colgroup>
-
-            <tbody>
-
-                <tr>
-                    <th colspan="2" class="e">배너명</th>
-                    <td colspan="3">
-                        <span class="tdInfoSpan">* 입력하신 배너명은 화면에 노출되지 않습니다.</span>
-                        <input type="text" class="width500" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <th rowspan="2" class="e">이미지</th>
-                    <th>PC</th>
-                    <td colspan="3">
-                        <span class="tdInfoSpan">000 x 0.00Kb</span>
-                        <input type="file" class="width500" placeholder="파일을 선택하세요." />
-                        <button type="button" class="s_btn">파일 검색</button>
-                        <button type="button" class="s_btn">파일 삭제</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th>Mobile</th>
-                    <td colspan="3">
-                        <span class="tdInfoSpan">000 x 0.00Kb</span>
-                        <input type="file" class="width500" placeholder="파일을 선택하세요." />
-                        <button type="button" class="s_btn">파일 검색</button>
-                        <button type="button" class="s_btn">파일 삭제</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th class="e" colspan="2">URL</th>
-                    <td colspan="3">
-                        <input type="text" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <th colspan="2">노출여부</th>
-                    <td colspan="3">
-                        <select>
-                            <option>미노출</option>
-                        </select>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th colspan="2">등록일</th>
-                    <td>2020-01-21 12:23:34</td>
-                    <th>수정일</th>
-                    <td>2020-03-11 12:23:04</td>
-                </tr>
-
-            </tbody>
-        </table> -->
 </div>
 </template>
 

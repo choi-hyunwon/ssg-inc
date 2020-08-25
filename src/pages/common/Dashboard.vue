@@ -372,10 +372,66 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>SYS050008_2</td>
+                    <td class="left">[컨텐츠 관리] 이벤트관리 - 레이어팝업</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050008_2'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
                     <td>SYS050009</td>
                     <td class="left">[컨텐츠 관리] 뉴스관리</td>
                     <td>
                         <button class="s_btn" onclick="location.href='#/part2/SYS050009'">화면보기</button>
+                    </td>
+                </tr>
+				<tr>
+                    <td>SYS050014</td>
+                    <td class="left">[고객센터 관리] 공지사항 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050014'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050015</td>
+                    <td class="left">[고객센터 관리] FAQ 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050015'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050015_2</td>
+                    <td class="left">[고객센터 관리] FAQ 관리 - 레이어팝업</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050015_2'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050010</td>
+                    <td class="left">[서비스 관리] 앱 버젼 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050010'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050011</td>
+                    <td class="left">[서비스 관리] SNS 키 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050011'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050012</td>
+                    <td class="left">[서비스 관리] 본인인증 Key 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050012'">화면보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SYS050013</td>
+                    <td class="left">[서비스 관리] Naver Map 관리</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='#/part2/SYS050013'">화면보기</button>
                     </td>
                 </tr>
             </tbody>

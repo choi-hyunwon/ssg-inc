@@ -1,18 +1,17 @@
 <template>
 <div>
     <div class="page_tit">
-        <h2>배너 관리</h2>
+        <h2>앱버젼 관리</h2>
         <ul>
             <li>HOME</li>
             <li>웹/앱</li>
-            <li>컨텐츠 관리</li>
+            <li>서비스 관리</li>
         </ul>
     </div>
 
     <div class="comm_btn">
         <button type="button">조회</button>
         <button type="button">신규</button>
-        <button type="button">삭제</button>
         <button type="button">저장</button>
     </div>
 
@@ -27,16 +26,20 @@
 
             <tbody>
                 <tr>
-                    <th>배너명</th>
-                    <td>
-                        <input type="text" />
-                    </td>
-                    <th>노출여부</th>
+                    <th>구분</th>
                     <td>
                         <select>
-                            <option>전체</option>
-                            <option>노출</option>
-                            <option>미노출</option>
+							<option>전체</option>
+							<option>iOs</option>
+							<option>Android</option>
+                        </select>
+                    </td>
+                    <th>업데이트 유형</th>
+                    <td>
+                        <select>
+							<option>전체</option>
+							<option>필수</option>
+							<option>선택</option>
                         </select>
                     </td>
                 </tr>
@@ -53,99 +56,70 @@
 
     <div class="con_tit">
         <select class="floatRight">
-            <option>5개씩보기</option>
-            <option>10개씩보기</option>
-            <option>20개씩보기</option>
-            <option>30개씩보기</option>
-            <option>40개씩보기</option>
-            <option>50개씩보기</option>
+            <option>5개씩 보기</option>
         </select>
-        <h3>배너 목록</h3>
+        <h3>앱버전 목록</h3>
         <p class="num">[총 30 건]</p>
     </div>
 
     <div class="form_table list">
         <table>
             <colgroup>
-                <col style="width:50px" />
-                <col style="width:50px" />
-                <col style="width:80px" />
+                <col style="width:10%" />
                 <col style="width:auto" />
-                <col style="width:100px" />
-                <col style="width:200px" />
+                <col style="width:auto" />
+                <col style="width:auto" />
+                <col style="width:15%" />
+                <col style="width:15%" />
             </colgroup>
 
             <thead>
                 <tr>
-                    <th></th>
                     <th>No</th>
-                    <th>이미지</th>
-                    <th>배너명</th>
-                    <th>노출 여부</th>
+                    <th>구분</th>
+                    <th>버전명</th>
+                    <th>등록자</th>
+                    <th>반영일</th>
                     <th>등록일</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
                     <td>100</td>
-                    <td>
-                        <img class="couponImage" src="@/images/coupon.png" alt />
-                    </td>
-                    <td class="left">신세계 상품권 가이드</td>
-                    <td>노출</td>
-                    <td>2020-08-21 11:23:23</td>
+                    <td>일회용컵 없는 날 캠페인</td>
+                    <td><a>노출 위치</a></td>
+                    <td>아디다스</td>
+                    <td>미노출</td>
+                    <td>2020-09-21 11;32;34</td>
                 </tr>
+
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>100</td>
-                    <td>
-                        <img class="couponImage" src="@/images/coupon.png" alt />
-                    </td>
-                    <td class="left">신세계 상품권 가이드</td>
-                    <td>노출</td>
-                    <td>2020-08-21 11:23:23</td>
+                    <td>30</td>
+                    <td>iOS</td>
+                    <td>0.1.2</td>
+                    <td>abc1234</td>
+                    <td>2020-01-23 12:34:12</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>100</td>
-                    <td>
-                        <img class="couponImage" src="@/images/coupon.png" alt />
-                    </td>
-                    <td class="left">신세계 상품권 가이드</td>
-                    <td>노출</td>
-                    <td>2020-08-21 11:23:23</td>
+                
+				<tr>
+                    <td>30</td>
+                    <td>iOS</td>
+                    <td>0.1.2</td>
+                    <td>abc1234</td>
+                    <td>2020-01-23 12:34:12</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>100</td>
-                    <td>
-                        <img class="couponImage" src="@/images/coupon.png" alt />
-                    </td>
-                    <td class="left">신세계 상품권 가이드</td>
-                    <td>노출</td>
-                    <td>2020-08-21 11:23:23</td>
+				
+				<tr>
+                    <td>30</td>
+                    <td>iOS</td>
+                    <td>0.1.2</td>
+                    <td>abc1234</td>
+                    <td>2020-01-23 12:34:12</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>100</td>
-                    <td>
-                        <img class="couponImage" src="@/images/coupon.png" alt />
-                    </td>
-                    <td class="left">신세계 상품권 가이드</td>
-                    <td>노출</td>
-                    <td>2020-08-21 11:23:23</td>
-                </tr>
+
             </tbody>
         </table>
     </div>
@@ -168,6 +142,81 @@
     </div>
 
     <div class="con_tit">
+        <h3>앱버젼 상세</h3>
+    </div>
+
+	<div class="form_table">
+		<table>
+			<colgroup>
+				<col style="width: 150px" />
+				<col style="width: auto" />
+				<col style="width: 150px" />
+				<col style="width: auto" />
+			</colgroup>
+
+			<tbody>
+				<tr>
+					<th class="e">구분</th>
+					<td colspan="3">
+						<select>
+							<option>iOS</option>
+							<option>Android</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<th>업데이트 유형</th>
+					<td colspan="3">
+						<label><input type="radio" name="updateType" />필수</label>
+						<label><input type="radio" name="updateType" />선택</label>
+					</td>
+				</tr>
+
+				<tr>
+					<th>버젼</th>
+					<td colspan="3">
+						<input class="width100" type="text" /><input class="width100" type="text" /><input class="width100" type="text" /><button type="text" class="s_btn">중복확인</button>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>링크</th>
+					<td colspan="3">
+						<input type="text" />
+					</td>
+				</tr>
+
+				<tr>
+					<th>반영일</th>
+					<td colspan="3">
+						<flat-pickr class="width300" v-model="updateDate" :config="configs.start" placeholder="반영일" name="updateDate" @on-change="onStartChange"></flat-pickr>
+					</td>
+				</tr>
+
+				<tr>
+					<th>메모</th>
+					<td colspan="3">
+						<textarea></textarea>
+					</td>
+				</tr>
+			
+				<tr>
+					<th>등록일</th>
+					<td>
+						2020.03.12 11:23:34
+					</td>
+
+					<th>수정일</th>
+					<td>
+						2020.03.12 11:23:34
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+    <!-- <div class="con_tit">
         <h3>배너 상세</h3>
     </div>
 
@@ -182,7 +231,7 @@
             </colgroup>
 
             <tbody>
-				
+
                 <tr>
                     <th colspan="2" class="e">배너명</th>
                     <td colspan="3">
@@ -199,7 +248,6 @@
                         <input type="file" class="width500" placeholder="파일을 선택하세요." />
                         <button type="button" class="s_btn">파일 검색</button>
                         <button type="button" class="s_btn">파일 삭제</button>
-						<img class="thumb" src="" />
                     </td>
                 </tr>
 
@@ -210,7 +258,6 @@
                         <input type="file" class="width500" placeholder="파일을 선택하세요." />
                         <button type="button" class="s_btn">파일 검색</button>
                         <button type="button" class="s_btn">파일 삭제</button>
-						<img class="thumb" src="" />
                     </td>
                 </tr>
 
@@ -226,21 +273,19 @@
                     <td colspan="3">
                         <select>
                             <option>미노출</option>
-                            <option>노출</option>
                         </select>
                     </td>
                 </tr>
 
-				<tr>
-					<th colspan="2">등록일</th>
-					<td>2020-01-21 12:23:34</td>
-					<th>수정일</th>
-					<td>2020-03-11 12:23:04</td>
-				</tr>
+                <tr>
+                    <th colspan="2">등록일</th>
+                    <td>2020-01-21 12:23:34</td>
+                    <th>수정일</th>
+                    <td>2020-03-11 12:23:04</td>
+                </tr>
 
             </tbody>
-        </table>
-    </div>
+    </table>-->
 </div>
 </template>
 
@@ -251,13 +296,13 @@ import {
 } from "flatpickr/dist/l10n/ko";
 
 export default {
-    name: "SYS050007",
+    name: "SYS050010",
 
     data() {
         return {
             startDate: "",
             endDate: "",
-            monthDate: "",
+            updateDate: "",
 
             configs: {
                 start: {

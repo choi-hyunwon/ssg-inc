@@ -58,6 +58,14 @@
     </div>
 
     <div class="con_tit">
+		<select class="floatRight">
+            <option>5개씩 보기</option>
+            <option>10개씩 보기</option>
+            <option>20개씩 보기</option>
+            <option>30개씩 보기</option>
+            <option>40개씩 보기</option>
+            <option>50개씩 보기</option>
+        </select>
         <h3>매장 목록</h3>
         <p class="num">[총 0 건]</p>
     </div>
@@ -88,8 +96,8 @@
                     <td>스타벅스 성수점</td>
                     <td>스타벅스</td>
                     <td>
-                        <button type="button" class="s_btn redBtn">적립제외</button>
-                        <button type="button" class="s_btn blueBtn">사용가능</button>
+                        <button type="button" class="s_btn redBtn">P 적립제외</button>
+                        <button type="button" class="s_btn blueBtn">P 사용가능</button>
                     </td>
                     <td>미노출</td>
                     <td>2020-07-01 11:23:23</td>
@@ -100,8 +108,8 @@
                     <td>스타벅스 강남점</td>
                     <td>스타벅스</td>
                     <td>
-                        <button type="button" class="s_btn blueBtn">적립가능</button>
-                        <button type="button" class="s_btn redBtn">사용제외</button>
+                        <button type="button" class="s_btn blueBtn">P 적립가능</button>
+                        <button type="button" class="s_btn redBtn">P 사용제외</button>
                     </td>
                     <td>노출</td>
                     <td>2020-07-01 11:23:23</td>
@@ -112,8 +120,8 @@
                     <td>아디다스 성수점</td>
                     <td>스타벅스</td>
                     <td>
-                        <button type="button" class="s_btn redBtn">적립제외</button>
-                        <button type="button" class="s_btn redBtn">사용제외</button>
+                        <button type="button" class="s_btn redBtn">P 적립제외</button>
+                        <button type="button" class="s_btn redBtn">P 사용제외</button>
                     </td>
                     <td>미노출</td>
                     <td>2020-07-01 11:23:23</td>
@@ -124,13 +132,12 @@
                     <td>나이키 성수점</td>
                     <td>스타벅스</td>
                     <td>
-                        <button type="button" class="s_btn blueBtn">적립가능</button>
-                        <button type="button" class="s_btn blueBtn">사용가능</button>
+                        <button type="button" class="s_btn blueBtn">P 적립가능</button>
+                        <button type="button" class="s_btn blueBtn">P 사용가능</button>
                     </td>
                     <td>미노출</td>
                     <td>2020-07-01 11:23:23</td>
                 </tr>
-               
             </tbody>
         </table>
     </div>
@@ -236,15 +243,15 @@
                     <th>포인트 적립 여부</th>
                     <td>
                         <select>
-							<option value="">사용</option>
 							<option value="">미사용</option>
+							<option value="">사용</option>
 						</select>
                     </td>
                     <th>포인트 사용 여부</th>
                     <td>
                         <select>
-							<option value="">사용</option>
 							<option value="">미사용</option>
+							<option value="">사용</option>
 						</select>
                     </td>
                 </tr>
@@ -253,8 +260,8 @@
                     <th>노출 여부</th>
                     <td colspan="3">
                         <select>
-                            <option value>노출</option>
                             <option value>미노출</option>
+                            <option value>노출</option>
                         </select>
                     </td>
                 </tr>

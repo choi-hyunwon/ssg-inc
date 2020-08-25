@@ -41,6 +41,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
+						<img class="thumb" src="" />
                     </td>
                 </tr>
 
@@ -51,6 +52,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
+						<img class="thumb" src="" />
                     </td>
                 </tr>
             </tbody>

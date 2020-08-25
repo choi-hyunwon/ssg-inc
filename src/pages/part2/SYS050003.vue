@@ -43,6 +43,14 @@
     </div>
 
     <div class="con_tit">
+		<select class="floatRight">
+            <option>5개씩 보기</option>
+            <option>10개씩 보기</option>
+            <option>20개씩 보기</option>
+            <option>30개씩 보기</option>
+            <option>40개씩 보기</option>
+            <option>50개씩 보기</option>
+        </select>
         <h3>상품 목록</h3>
         <p class="num">[총 0 건]</p>
     </div>
@@ -178,7 +186,7 @@
             <tbody>
                 <tr>
                     <th class="e">가격</th>
-                    <td class="flex alignCenter"><input type="text" /><label>원</label></td>
+                    <td class="flex alignCenter"><input class="width100" type="text" /><label>원</label></td>
                     <th>브랜드</th>
                     <td>
 						<select>

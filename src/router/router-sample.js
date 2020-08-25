@@ -256,11 +256,58 @@ export default {
 				meta : {},
 				component: () => import('@/pages/part2/SYS050008')
 			},
+			{
+				path: '/part2/SYS050008_2',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050008_2')
+			},
 
 			{
 				path: '/part2/SYS050009',
 				meta : {},
 				component: () => import('@/pages/part2/SYS050009')
+			},
+
+			{
+				path: '/part2/SYS050010',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050010')
+			},
+
+			{
+				path: '/part2/SYS050011',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050011')
+			},
+			
+			{
+				path: '/part2/SYS050012',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050012')
+			},
+			
+			{
+				path: '/part2/SYS050013',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050013')
+			},
+
+			{
+				path: '/part2/SYS050014',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050014')
+			},
+
+			{
+				path: '/part2/SYS050015',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050015')
+			},
+			
+			{
+				path: '/part2/SYS050015_2',
+				meta : {},
+				component: () => import('@/pages/part2/SYS050015_2')
 			}
 			
 						

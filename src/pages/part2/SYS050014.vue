@@ -1,11 +1,11 @@
 <template>
 <div>
     <div class="page_tit">
-        <h2>뉴스 관리</h2>
+        <h2>공지사항 관리</h2>
         <ul>
             <li>HOME</li>
             <li>웹/앱</li>
-            <li>컨텐츠 관리</li>
+            <li>서비스 관리</li>
         </ul>
     </div>
 
@@ -31,30 +31,20 @@
                     <td>
                         <input type="text" />
                     </td>
-                    <th>노출 위치</th>
+                    <th>노출 여부</th>
                     <td>
-                        <label>
-                            <input type="checkbox" />메인
-                        </label>
-                        <label>
-                            <input type="checkbox" />브랜드
-                        </label>
+                        <select>
+							<option>전체</option>
+							<option>노출</option>
+							<option>미노출</option>
+                        </select>
                     </td>
                 </tr>
 
                 <tr>
                     <th>기간</th>
-                    <td class="flex alignCenter">
-                        <input type="date" />&nbsp;~&nbsp;
-                        <input type="date" />
-                    </td>
-                    <th>노출여부</th>
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>노출</option>
-                            <option>미노출</option>
-                        </select>
+                    <td colspan="3">
+                        <!-- <flat-pickr class="width300" v-model="startDate" :config="configs.start" placeholder="시작일자" name="startDate" @on-change="onStartChange"></flat-pickr> ~ <flat-pickr class="width300" v-model="endDate" :config="configs.end" placeholder="종료일자" name="endDate" @on-change="onStartChange"></flat-pickr> -->
                     </td>
                 </tr>
             </tbody>
@@ -70,7 +60,7 @@
             <option>40개씩 보기</option>
             <option>50개씩 보기</option>
         </select>
-        <h3>뉴스 목록</h3>
+        <h3>공지사항 목록</h3>
         <p class="num">[총 30 건]</p>
     </div>
 
@@ -80,9 +70,7 @@
                 <col style="width:50px" />
                 <col style="width:50px" />
                 <col style="width:auto" />
-                <col style="width:80px" />
-                <col style="width:80px" />
-                <col style="width:80px" />
+                <col style="width:100px" />
                 <col style="width:150px" />
             </colgroup>
 
@@ -91,67 +79,45 @@
                     <th></th>
                     <th>No</th>
                     <th>제목</th>
-                    <th>노출 위치</th>
-                    <th>관련 브랜드</th>
-                    <th>노출 여부</th>
+                    <th>노출여부</th>
                     <th>등록일</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>100</td>
-                    <td class="left">일회용컵 없는 날 캠페인</td>
-                    <td><a>노출 위치</a></td>
-                    <td>아디다스</td>
+                    <td class="left">개인정보 처리방침 변경 안내</td>
                     <td>미노출</td>
-                    <td>2020-09-21 11;32;34</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>99</td>
-                    <td class="left">일회용컵 없는 날 캠페인</td>
-                    <td><a>노출 위치</a></td>
-                    <td>아디다스</td>
+                    <td><input type="checkbox" /></td>
+                    <td>100</td>
+                    <td class="left">개인정보 처리방침 변경 안내</td>
                     <td>미노출</td>
-                    <td>2020-09-21 11;32;34</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>98</td>
-                    <td class="left">일회용컵 없는 날 캠페인</td>
-                    <td><a>노출 위치</a></td>
-                    <td>아디다스</td>
+                    <td><input type="checkbox" /></td>
+                    <td>100</td>
+                    <td class="left">개인정보 처리방침 변경 안내</td>
                     <td>미노출</td>
-                    <td>2020-09-21 11;32;34</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>97</td>
-                    <td class="left">일회용컵 없는 날 캠페인</td>
-                    <td><a>노출 위치</a></td>
-                    <td>아디다스</td>
+                    <td><input type="checkbox" /></td>
+                    <td>100</td>
+                    <td class="left">개인정보 처리방침 변경 안내</td>
                     <td>미노출</td>
-                    <td>2020-09-21 11;32;34</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>96</td>
-                    <td class="left">일회용컵 없는 날 캠페인</td>
-                    <td><a>노출 위치</a></td>
-                    <td>아디다스</td>
+                    <td><input type="checkbox" /></td>
+                    <td>100</td>
+                    <td class="left">개인정보 처리방침 변경 안내</td>
                     <td>미노출</td>
-                    <td>2020-09-21 11;32;34</td>
+                    <td>2020-09-21 11:32:34</td>
                 </tr>
 
             </tbody>
@@ -176,56 +142,15 @@
     </div>
 
     <div class="con_tit">
-        <h3>뉴스 상세</h3>
+        <h3>공지사항 상세</h3>
     </div>
 
-    <ul class="formTabs withLine">
+	<ul class="formTabs withLine">
         <li class="on">한국어</li>
         <li>영어</li>
         <li>일본어</li>
         <li>중국어</li>
     </ul>
-
-    <div class="form_table">
-        <table>
-            <colgroup>
-                <col style="width: 150px;" />
-                <col style="width: auto;" />
-                <col style="width: 150px;" />
-                <col style="width: auto;" />
-            </colgroup>
-
-            <tbody>
-                <tr>
-                    <th class="e">제목</th>
-                    <td colspan="3"><input type="text" /></td>
-                </tr>
-                <tr>
-                    <th>내용</th>
-                    <td colspan="3">
-                        <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
-                            </quill-editor>
-                        </div>
-                        <div class="inp_tip">
-                            <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
-                        </div>
-                    </td>
-                </tr>
-
-				<tr>
-					<th>등록일</th>
-					<td>2020.12.31 11:23:24</td>
-					<th>수정일</th>
-					<td>2020.12.31 11:23:24</td>
-				</tr>
-            </tbody>
-        </table>
-    </div>
-
-	<div class="con_tit">
-        <h3>공통 정보 관리</h3>
-    </div>
 
 	<div class="form_table">
 		<table>
@@ -236,11 +161,47 @@
 
 			<tbody>
 				<tr>
-					<th class="e">노출 위치</th>
-					<td>
-						<label><input type="checkbox" />메인</label><label><input type="checkbox" />브랜드</label><select><option>브랜드 선택</option></select>
+					<th class="e">제목</th>
+					<td colspan="3">
+						<input type="text" />
 					</td>
 				</tr>
+
+				<tr>
+					<th>내용</th>
+					<td colspan="3">
+						<div class="example">
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
+                            </quill-editor>
+                        </div>
+                        <div class="inp_tip">
+                            <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
+                        </div>
+					</td>
+				</tr>
+
+				<tr>
+					<th>등록일</th>
+					<td>2020.10.23 22:34:12</td>
+					<th>수정일</th>
+					<td>2020.10.23 22:34:12</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+
+	<div class="con_tit">
+        <h3>공통정보 관리</h3>
+	</div>
+
+	<div class="form_table">
+		<table>
+			<colgroup>
+				<col style="width: 150px" />
+				<col style="width: auto" />
+			</colgroup>
+
+			<tbody>
 
 				<tr>
 					<th>노출 여부</th>
@@ -253,10 +214,8 @@
 			</tbody>
 		</table>
 	</div>
-
 </div>
 </template>
-
 
 <script>
 import Vue from "vue";

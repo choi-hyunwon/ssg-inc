@@ -41,6 +41,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
+						<img class="thumb" src="" />
                     </td>
                 </tr>
 
@@ -51,6 +52,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
+						<img class="thumb" src="" />
                     </td>
                 </tr>
             </tbody>
@@ -58,6 +60,7 @@
     </div>
 
     <div class="con_tit">
+		<button type="button" class="s_btn floatRight">템플릿 추가</button>
         <h3>쿠폰 이용 안내</h3>
     </div>
 
@@ -128,7 +131,7 @@
             </colgroup>
             <tbody>
 				<tr>
-                    <th rowspan="2">포인트 이용 안내 2</th>
+                    <th rowspan="2">포인트 이용 안내 2<br /><button type="button" class="s_btn">템플릿 삭제</button></th>
 					<td class="center">제목</td>
 					<td>
 						<span class="tdInfoSpan">최대 10자</span>

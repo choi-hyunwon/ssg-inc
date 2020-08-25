@@ -95,6 +95,8 @@ pre {
 	vertical-align: middle;
 }
 
+textarea { min-height: 150px; }
+
 input[type=text], input[type=date] {
 	border : 1px solid #e0e0e0;
 	height : 28px;
@@ -1188,6 +1190,14 @@ button.s_btn.icon_02 {
 	display: flex;
 }
 
+.flexBasisAuto {
+	flex-basis: auto !important;
+}
+
+.flex.column {
+	flex-direction: column;
+}
+
 .flexItem {
 	flex: 1;
 }
@@ -1200,13 +1210,19 @@ button.s_btn.icon_02 {
 	flex-shrink: 1;
 }
 
-.flex.alignCenter {
+.alignCenter {
 	align-items: center;
+}
+
+.justifyCenter {
+	justify-content: center;
 }
 
 .flex>label {
 	margin: 0 0.5em;
 }
+.flexShrink0 { flex-shrink: 0 !important; }
+.flexGrow0 { flex-grow: 0 !important; }
 
 .s_btn+.s_btn {
 	margin-left: 10px;
@@ -1304,7 +1320,35 @@ td .tdInfoSpan {
 	width: 300px !important;
 }
 
-label>input[type='checkbox'] {
+.width200 {
+	width: 200px !important;
+}
+
+.width100 {
+	width: 100px !important;
+}
+
+.width80 {
+	width: 80px !important;
+}
+
+.width60 {
+	width: 60px !important;
+}
+
+.width50 {
+	width: 50px !important;
+}
+
+.marginTop10 {
+	margin-top: 10px !important;
+}
+
+.marginLeft10 {
+	margin-left: 10px !important;
+}
+
+label>input[type='checkbox'], label>input[type='radio'] {
 	margin-right: 6px;
 }
 
@@ -1312,10 +1356,75 @@ label+label, label+select {
 	margin-left: 20px;
 }
 
+input+input, input+button {
+	margin-left: 10px;
+}
+
+.rotate180 {
+	transform: rotate(180deg);
+}
+
+.inlineBlock { display: inline-block; }
+
+.form_table th button.s_btn { margin-top: 10px; }
+
+.doubleLine { line-height: 2; }
+
+#layers { z-index: 100; position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); top: 0; left: 0; display: flex; align-items: center; justify-content: center; }
+.layer { padding: 30px; flex: 0 0 auto; min-width: 500px; min-height: 500px; background-color: white; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+.layer .form_table table { table-layout: auto; }
+.layer > .flex > div {
+	flex: 1;
+	margin: 0 10px;
+}
+
+.layer .comm_btn {
+	border-top: 1px solid #e3dcd7;
+	border-bottom: 0;
+	margin: 20px 0 0;
+	padding: 20px 0 0;
+}
+
+.layer > .flex > .flexItem:first-child {
+	margin-left: 0;
+}
+
+.layer > .flex > .flexItem:last-child {
+	margin-right: 0;
+}
+
+.smallNotice { color: #d10606; font-size: 12px;  }
+table + .smallNotice { display: inline-block; margin-top: 5px; }
+
+.textLeft { text-align: left !important; }
+.textRight { text-align: right !important; }
+
 .couponImage {
 	width : 100%;
 	height: 100%;
 }
+
+.c_btn {
+	border: none;
+    padding: 0 20px;
+    border-radius: 3px;
+    background: #6c5b51;
+    height: 34px;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+    margin-left: 3px;
+    color: #fff;
+}
+
+.column > button.s_btn + button.s_btn { margin: 10px 0 0; }
+
+.c_btn:hover { background-color: black; }
+
+.layer .pagingList { margin-top: 30px; }
+.layer .pagingList a { flex: 0 1 auto; font-size: 0.9em; }
+
+img.thumb { border: 1px solid #e3dcd7; margin-left: 10px; width: 100px; height:28px; width: auto; object-fit: cover; object-position: center; }
+img.thumb:hover { border-color: #989898; }
 
 td > a { display: inline-block; width: 100%; height: 100%; }
 td > a, td > a:link, td > a:hover, td > a:visited, td > a:active { color: var(--fontColor); }

@@ -43,6 +43,14 @@
     </div>
 
     <div class="con_tit">
+		<select class="floatRight">
+            <option>5개씩 보기</option>
+            <option>10개씩 보기</option>
+            <option>20개씩 보기</option>
+            <option>30개씩 보기</option>
+            <option>40개씩 보기</option>
+            <option>50개씩 보기</option>
+        </select>
         <h3>브랜드 목록</h3>
         <p class="num">[총 0 건]</p>
     </div>
@@ -200,8 +208,8 @@
                     <th>SNS 사용여부</th>
                     <td colspan="3">
                         <select>
-                            <option value="">사용</option>
                             <option value="">미사용</option>
+                            <option value="">사용</option>
                         </select>
                     </td>
                 </tr>
@@ -210,8 +218,8 @@
                     <th>SNS 채널 URL</th>
                     <td colspan="3">
                         <ul class="formList">
-                            <li><label>트위터</label><input type="text" /></li>
-                            <li><label>인스타그램</label><input type="text" /></li>
+                            <li class="disabled"><label>트위터</label><input type="text" disabled /></li>
+                            <li class="disabled"><label>인스타그램</label><input type="text" disabled /></li>
                             <li class="disabled"><label>페이스북</label><input type="text" disabled /></li>
                         </ul>
                     </td>
@@ -220,7 +228,7 @@
                 <tr>
                     <th class="e">로고 이미지</th>
                     <td colspan="3">
-                        <input type="file" /><button class="s_btn">파일검색</button><button class="s_btn">파일삭제</button>
+                        <input type="file" /><button class="s_btn">파일검색</button><button class="s_btn">파일삭제</button><img class="thumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -232,8 +240,8 @@
                     <th>노출 여부</th>
                     <td>
                         <select>
+                            <option value="">미노출</option>
                             <option value="">노출</option>
-                            <option value="">비노출</option>
                         </select>
                     </td>
                 </tr>
