@@ -174,9 +174,9 @@
 				</tr>
 
 				<tr>
-					<th>버젼</th>
+					<th>버전</th>
 					<td colspan="3">
-						<input class="width100" type="text" /><input class="width100" type="text" /><input class="width100" type="text" /><button type="text" class="s_btn">중복확인</button>
+						<input class="width100 textCenter" type="text" /><input class="width100 textCenter" type="text" /><input class="width100 textCenter" type="text" /><button type="text" class="s_btn">중복확인</button>
 					</td>
 				</tr>
 				

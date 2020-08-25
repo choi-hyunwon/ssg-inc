@@ -1398,6 +1398,7 @@ table + .smallNotice { display: inline-block; margin-top: 5px; }
 
 .textLeft { text-align: left !important; }
 .textRight { text-align: right !important; }
+.textCenter { text-align: center !important; }
 
 .couponImage {
 	width : 100%;
