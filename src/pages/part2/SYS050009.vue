@@ -204,12 +204,13 @@
 			<h3>뉴스 상세</h3>
 		</div>
 
-		<ul class="formTabs withLine">
-			<li class="on">한국어</li>
-			<li>영어</li>
-			<li>일본어</li>
-			<li>중국어</li>
-		</ul>
+		<v-tabs>
+			<ul class="formTabs withLine">
+				<li @click="$setTabs(tab.id)" v-for="tab of tabs" :key="tab.id" :class="{'on' : tab.id === activeTab}">
+					<v-tab>{{ tab.title}}</v-tab>
+				</li>
+			</ul>
+		</v-tabs>
 
 		<div class="form_table">
 			<table>
@@ -339,7 +340,11 @@ export default {
 		"page-title": PageTitle,
 	},
 
-	watch: {},
+    watch: {
+        '$route.path': function () {
+            this.activeTab = 0
+        }
+    },
 
 	data() {
 		return {
@@ -404,6 +409,14 @@ export default {
 					minDate: null,
 				},
 			},
+
+            activeTab: 0,
+            tabs: [
+                { id: 0, title: '한국어', content: '' },
+                { id: 1, title: '영어', content: '' },
+                { id: 2, title: '일본어', content: '' },
+                { id: 3, title: '중국어', content: '' }
+            ]
 		};
 	},
 
@@ -466,6 +479,10 @@ export default {
 				}
 			});
 		},
+
+        $setTabs: function $setTabs (activeTab) {
+            this.activeTab = activeTab
+        }
 	},
 };
 </script>

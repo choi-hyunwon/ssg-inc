@@ -16,6 +16,7 @@
 			<button type="button">저장</button>
 		</div>
 
+
 		<div class="form_table">
 			<table>
 				<colgroup>
@@ -86,9 +87,11 @@
 				<option>40개씩보기</option>
 				<option>50개씩보기</option>
 			</select>
-			<h3>이벤트 목록</h3>
-			<p class="num">[총 30 건]</p>
-			<button class="s_btn marginLeft10">게시 관리</button>
+			<SYS050008Popup v-slot="slotProps">
+				<h3>이벤트 목록</h3>
+				<p class="num">[총 30 건]</p>
+				<button class="s_btn marginLeft10" @click="slotProps.togglePopup">게시 관리</button>
+			</SYS050008Popup>
 		</div>
 
 		<div class="form_table list">
@@ -238,10 +241,13 @@
 <script>
 import Vue from "vue";
 import { Korean } from "flatpickr/dist/l10n/ko";
+import SYS050008Popup from '../part2/SYS050008_popup';
 
 export default {
-	name: "SYS050007",
-
+	name: "SYS050008",
+    components: {
+        SYS050008Popup
+    },
 	data() {
 		return {
 			startDate: "",

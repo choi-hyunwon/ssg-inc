@@ -14,12 +14,13 @@
         <button>저장</button>
     </div>
 
-    <ul class="formTabs withLine">
-        <li class="on">한국어</li>
-        <li>영어</li>
-        <li>일본어</li>
-        <li>중국어</li>
-    </ul>
+    <v-tabs>
+        <ul class="formTabs withLine">
+            <li @click="$setTabs(tab.id)" v-for="tab of tabs" :key="tab.id" :class="{'on' : tab.id === activeTab}">
+                <v-tab>{{ tab.title}}</v-tab>
+            </li>
+        </ul>
+    </v-tabs>
 
     <div class="con_tit">
         <h3>상단 멤버십 소개</h3>
@@ -314,7 +315,11 @@ export default {
         "page-title": PageTitle,
     },
 
-    watch: {},
+    watch: {
+        '$route.path': function () {
+            this.activeTab = 0
+        }
+    },
 
     data() {
         return {
@@ -353,6 +358,14 @@ export default {
             },
 
             editorLimit: 50,
+
+            activeTab: 0,
+            tabs: [
+                { id: 0, title: '한국어', content: '' },
+                { id: 1, title: '영어', content: '' },
+                { id: 2, title: '일본어', content: '' },
+                { id: 3, title: '중국어', content: '' }
+            ]
         };
     },
 
@@ -413,6 +426,10 @@ export default {
                 }
             });
         },
+
+        $setTabs: function $setTabs (activeTab) {
+            this.activeTab = activeTab
+        }
     },
 };
 </script>

@@ -133,62 +133,65 @@
         <h3>브랜드 상세</h3>
     </div>
 
-	<ul class="formTabs">
-		<li class="on">한국어</li>
-		<li>영어</li>
-		<li>일본어</li>
-		<li>중국어</li>
-	</ul>
+    <v-tabs v-model="activeTab">
+        <ul class="formTabs">
+            <li @click="$setTabs(tab.id)" v-for="tab of tabs" :key="tab.id" :class="{'on' : tab.id === activeTab}">
+                <v-tab>{{ tab.title}}</v-tab>
+            </li>
+        </ul>
 
-    <div class="form_table">
-        <table>
-            <colgroup>
-                <col style="width: 150px;">
-                <col style="width: auto;">
-                <col style="width: 150px;">
-                <col style="width: auto;">
-            </colgroup>
+        <v-tab-item v-for="tab of tabs" :key="tab.id" >
+            <div class="form_table">
+            <table>
+                <colgroup>
+                    <col style="width: 150px;">
+                    <col style="width: auto;">
+                    <col style="width: 150px;">
+                    <col style="width: auto;">
+                </colgroup>
 
-            <tbody>
-                <tr>
-                    <th>브랜드명</th>
-                    <td colspan="3">스타벅스</td>
-                </tr>
-                <tr>
-                    <th class="e">요약소개</th>
-                    <td colspan="3">
-                        <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
-                            </quill-editor>
-                        </div>
-                        <div class="inp_tip">
-                            <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
-                        </div>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th>브랜드명</th>
+                        <td colspan="3">{{tab.content}}</td>
+                    </tr>
+                    <tr>
+                        <th class="e">요약소개</th>
+                        <td colspan="3">
+                            <div class="example">
+                                <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
+                                </quill-editor>
+                            </div>
+                            <div class="inp_tip">
+                                <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
+                            </div>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <th class="e">상세내용</th>
-                    <td colspan="3">
-                        <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
-                            </quill-editor>
-                        </div>
-                        <div class="inp_tip">
-                            <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <th class="e">상세내용</th>
+                        <td colspan="3">
+                            <div class="example">
+                                <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}">
+                                </quill-editor>
+                            </div>
+                            <div class="inp_tip">
+                                <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
+                            </div>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <th>등록일</th>
-                    <td>2002-07-01 11:23:12</td>
-                    <th>수정일</th>
-                    <td>2002-07-01 11:23:12</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                    <tr>
+                        <th>등록일</th>
+                        <td>2002-07-01 11:23:12</td>
+                        <th>수정일</th>
+                        <td>2002-07-01 11:23:12</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </v-tab-item>
+    </v-tabs>
 
     <div class="con_tit">
         <h3>공통 정보 관리</h3>
@@ -285,7 +288,11 @@ export default {
         'page-title': PageTitle
     },
 
-    watch: {},
+    watch: {
+        '$route.path': function () {
+            this.activeTab = 0
+        }
+    },
 
     data() {
         return {
@@ -321,7 +328,15 @@ export default {
                 placeholder: '내용을 입력하세요.'
             },
 
-            editorLimit: 50
+            editorLimit: 50,
+
+            activeTab: 0,
+            tabs: [
+                { id: 0, title: '한국어', content: '스타벅스' },
+                { id: 1, title: '영어', content: 'starbucks' },
+                { id: 2, title: '일본어', content: 'スターバックス' },
+                { id: 3, title: '중국어', content: '星巴克' }
+            ]
         }
     },
 
@@ -378,6 +393,10 @@ export default {
                     commonUtils.$alertValidationError(_this.$validator);
                 }
             });
+        },
+
+        $setTabs: function $setTabs (activeTab) {
+            this.activeTab = activeTab
         }
     }
 }
