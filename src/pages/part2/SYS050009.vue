@@ -45,8 +45,7 @@
                 <tr>
                     <th>기간</th>
                     <td class="flex alignCenter">
-                        <input type="date" />&nbsp;~&nbsp;
-                        <input type="date" />
+						<flat-pickr class="width300" v-model="startDate" :config="configs.start" placeholder="시작일자" name="startDate" @on-change="onStartChange"></flat-pickr> ~ <flat-pickr class="width300" v-model="endDate" :config="configs.end" placeholder="종료일자" name="endDate" @on-change="onStartChange"></flat-pickr>
                     </td>
                     <th>노출여부</th>
                     <td>
@@ -331,7 +330,30 @@ export default {
                 placeholder: '내용을 입력하세요.'
             },
 
-            editorLimit: 50
+			editorLimit: 50,
+			startDate: "",
+            endDate: "",
+            updateDate: "",
+
+            configs: {
+                start: {
+                    allowInput: true,
+                    dateFormat: "Y-m-d",
+                    altFormat: "Y-m-d",
+                    minDate: new Date(),
+                    maxDate: null,
+                    method: function () {
+                        cosole.log(arguments);
+                    },
+                },
+
+                end: {
+                    allowInput: true,
+                    dateFormat: "Y-m-d",
+                    altFormat: "Y-m-d",
+                    minDate: null,
+                },
+            }
         }
     },
 
@@ -342,6 +364,12 @@ export default {
     },
 
     methods: {
+		 onStartChange(selectedDates, dateStr, instance) {
+            this.$set(this.configs.end, "minDate", dateStr);
+        },
+        onEndChange(selectedDates, dateStr, instance) {
+            this.$set(this.configs.start, "maxDate", dateStr);
+        },
         $onEditorBlur: function $onEditorBlur(quill) {
             console.log('editor blur!', quill)
         },
