@@ -55,8 +55,7 @@
 								placeholder="시작일자"
 								name="startDate"
 								@on-change="onStartChange"
-							></flat-pickr>~
-							<flat-pickr
+							></flat-pickr> ~<flat-pickr
 								autocomplete="off"
 								class="width300"
 								v-model="endDate"
@@ -74,6 +73,11 @@
 		<div class="con_tit">
 			<select class="floatRight">
 				<option>5개씩 보기</option>
+				<option>10개씩 보기</option>
+				<option>20개씩 보기</option>
+				<option>30개씩 보기</option>
+				<option>40개씩 보기</option>
+				<option>50개씩 보기</option>
 			</select>
 			<h3>앱버전 목록</h3>
 			<p class="num">[총 30 건]</p>

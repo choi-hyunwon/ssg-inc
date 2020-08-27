@@ -52,7 +52,7 @@
 								placeholder="시작일자"
 								name="startDate"
 								@on-change="onStartChange"
-							></flat-pickr>~
+							></flat-pickr> ~
 							<flat-pickr
 								autocomplete="off"
 								class="width300"

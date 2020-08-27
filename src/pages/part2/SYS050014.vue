@@ -44,7 +44,7 @@
                 <tr>
                     <th>기간</th>
                     <td colspan="3">
-                        <!-- <flat-pickr class="width300" v-model="startDate" :config="configs.start" placeholder="시작일자" name="startDate" @on-change="onStartChange"></flat-pickr> ~ <flat-pickr class="width300" v-model="endDate" :config="configs.end" placeholder="종료일자" name="endDate" @on-change="onStartChange"></flat-pickr> -->
+                        <flat-pickr autocomplete="off" class="width300" v-model="startDate" :config="configs.start" placeholder="시작일자" name="startDate" @on-change="onStartChange"></flat-pickr> ~ <flat-pickr autocomplete="off" class="width300" v-model="endDate" :config="configs.end" placeholder="종료일자" name="endDate" @on-change="onStartChange"></flat-pickr>
                     </td>
                 </tr>
             </tbody>
@@ -263,6 +263,29 @@ export default {
 
     data() {
         return {
+			startDate: "",
+			endDate: "",
+			monthDate: "",
+
+			configs: {
+				start: {
+					allowInput: true,
+					dateFormat: "Y-m-d",
+					altFormat: "Y-m-d",
+					minDate: new Date(),
+					maxDate: null,
+					method: function () {
+						cosole.log(arguments);
+					},
+				},
+
+				end: {
+					allowInput: true,
+					dateFormat: "Y-m-d",
+					altFormat: "Y-m-d",
+					minDate: null,
+				},
+			},
             sampleEditor: {
                 testConts: null
             },
@@ -314,6 +337,12 @@ export default {
     },
 
     methods: {
+		onStartChange(selectedDates, dateStr, instance) {
+			this.$set(this.configs.end, "minDate", dateStr);
+		},
+		onEndChange(selectedDates, dateStr, instance) {
+			this.$set(this.configs.start, "maxDate", dateStr);
+		},
         $onEditorBlur: function $onEditorBlur(quill) {
             console.log('editor blur!', quill)
         },

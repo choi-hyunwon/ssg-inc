@@ -19,7 +19,7 @@
 							<table>
 								<colgroup>
 									<col style="width:50px" />
-									<col style="width:50px" />
+									<col style="width:100px" />
 									<col style="width:300px" />
 								</colgroup>
 								<thead>
@@ -87,7 +87,7 @@
 							<table>
 								<colgroup>
 									<col style="width:50px" />
-									<col style="width:50px" />
+									<col style="width:100px" />
 									<col style="width:300px" />
 								</colgroup>
 								<thead>

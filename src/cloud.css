@@ -15,6 +15,7 @@ body {
 	--redColor  : #ff6a78;
 	--whiteColor: #f5f5f5;
 	--fontColor : #424242;
+	--buttonHoverColor: #53473f;
 }
 
 div {
@@ -909,7 +910,7 @@ button.s_btn.icon_02 {
 }
 
 .comm_btn button:hover {
-	background: #000;
+	background: var(--buttonHoverColor);
 }
 
 
@@ -1299,7 +1300,7 @@ button.s_btn.icon_02 {
 { color: black; }
 
 .formTabs>li:hover {
-	background-color: #000;
+	background-color: var(--buttonHoverColor);
 }
 
 .formTabs>li.on {
@@ -1435,7 +1436,7 @@ table + .smallNotice { display: inline-block; margin-top: 5px; }
 
 .column > button.s_btn + button.s_btn { margin: 10px 0 0; }
 
-.c_btn:hover { background-color: black; }
+.c_btn:hover { background-color: var(--buttonHoverColor); }
 
 .layer .pagingList { margin-top: 30px; }
 .layer .pagingList a { flex: 0 1 auto; font-size: 0.9em; }

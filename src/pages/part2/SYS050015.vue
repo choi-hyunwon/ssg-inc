@@ -78,10 +78,12 @@
 			</table>
 		</div>
 
-		<div class="con_tit">
-			<h3>공지사항 목록</h3>
-			<p class="num">[총 30 건]</p>
-			<button type="button" class="s_btn marginLeft10">분류 관리</button>
+		<div class="con_tit correctB-Modal">
+			<SYS050015Popup v-slot="slotProps">
+				<h3>공지사항 목록</h3>
+				<p class="num">[총 30 건]</p>
+				<button type="button" class="s_btn marginLeft10" @click="slotProps.togglePopup">분류 관리</button>
+			</SYS050015Popup>
 		</div>
 
 		<div class="form_table list">
@@ -176,7 +178,12 @@
 
 		<v-tabs v-model="activeTab">
 			<ul class="formTabs">
-				<li @click="$setTabs(tab.id)" v-for="tab of tabs" :key="tab.id" :class="{'on' : tab.id === activeTab}">
+				<li
+					@click="$setTabs(tab.id)"
+					v-for="tab of tabs"
+					:key="tab.id"
+					:class="{'on' : tab.id === activeTab}"
+				>
 					<v-tab>{{ tab.title}}</v-tab>
 				</li>
 			</ul>
@@ -185,6 +192,8 @@
 		<div class="form_table">
 			<table>
 				<colgroup>
+					<col style="width: 150px" />
+					<col style="width: auto" />
 					<col style="width: 150px" />
 					<col style="width: auto" />
 				</colgroup>
@@ -214,14 +223,6 @@
 
 		<div class="con_tit">
 			<h3>공통정보 관리</h3>
-		</div>
-
-		<div class="con_tit">
-			<SYS050015Popup v-slot="slotProps">
-				<h3>FAQ 분류 목록</h3>
-				<p class="num">[총 30 건]</p>
-				<button type="button" class="s_btn marginLeft10" @click="slotProps.togglePopup">분류 관리</button>
-			</SYS050015Popup>
 		</div>
 
 		<div class="form_table">
@@ -259,18 +260,18 @@
 <script>
 import Vue from "vue";
 import { Korean } from "flatpickr/dist/l10n/ko";
-import SYS050015Popup from '../part2/SYS050015_popup';
+import SYS050015Popup from "../part2/SYS050015_popup";
 
 export default {
 	name: "SYS050015",
-    components: {
-        SYS050015Popup
-    },
-    watch: {
-        '$route.path': function () {
-            this.activeTab = 0
-        }
-    },
+	components: {
+		SYS050015Popup,
+	},
+	watch: {
+		"$route.path": function () {
+			this.activeTab = 0;
+		},
+	},
 	data() {
 		return {
 			startDate: "",
@@ -296,13 +297,13 @@ export default {
 				},
 			},
 
-            activeTab: 0,
-            tabs: [
-                { id: 0, title: '한국어', content: '' },
-                { id: 1, title: '영어', content: '' },
-                { id: 2, title: '일본어', content: '' },
-                { id: 3, title: '중국어', content: '' }
-            ]
+			activeTab: 0,
+			tabs: [
+				{ id: 0, title: "한국어", content: "" },
+				{ id: 1, title: "영어", content: "" },
+				{ id: 2, title: "일본어", content: "" },
+				{ id: 3, title: "중국어", content: "" },
+			],
 		};
 	},
 
@@ -313,9 +314,9 @@ export default {
 		onEndChange(selectedDates, dateStr, instance) {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
-        $setTabs: function $setTabs (activeTab) {
-            this.activeTab = activeTab
-        }
+		$setTabs: function $setTabs(activeTab) {
+			this.activeTab = activeTab;
+		},
 	},
 };
 </script>
