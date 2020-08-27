@@ -78,7 +78,7 @@
 			</table>
 		</div>
 
-		<div class="con_tit noTransform">
+		<div class="con_tit correctB-Modal">
 			<select class="floatRight">
 				<option>5개씩보기</option>
 				<option>10개씩보기</option>

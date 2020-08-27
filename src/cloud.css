@@ -1446,7 +1446,11 @@ img.thumb:hover { border-color: #989898; }
 td > a { display: inline-block; width: 100%; height: 100%; }
 td > a, td > a:link, td > a:hover, td > a:visited, td > a:active { color: var(--fontColor); }
 
-.noTransform .modal.show .modal-dialog {
+.correctB-Modal .modal.show .modal-dialog {
 	-webkit-transform: none !important;
 	transform: none !important;
+}
+
+.correctB-Modal .modal-footer, .correctB-Modal .modal-header {
+	display: none;
 }
