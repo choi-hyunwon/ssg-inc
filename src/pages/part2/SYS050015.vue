@@ -216,7 +216,7 @@
 			<h3>공통정보 관리</h3>
 		</div>
 
-		<div class="con_tit">
+		<div class="con_tit correctB-Modal">
 			<SYS050015Popup v-slot="slotProps">
 				<h3>FAQ 분류 목록</h3>
 				<p class="num">[총 30 건]</p>
