@@ -16,6 +16,7 @@ body {
 	--whiteColor: #f5f5f5;
 	--fontColor : #424242;
 	--buttonHoverColor: #53473f;
+	--buttonTextColor : #000000;
 }
 
 div {
@@ -851,38 +852,42 @@ td.over {
 /* // 분할 레이아웃 */
 
 
-button.s_btn {
+.s_btn {
 	border          : 1px solid #e0e0e0;
 	padding         : 0 10px;
 	border-radius   : 3px;
 	background-color: #f7f7f7;
 	height          : 28px;
+	line-height          : 28px;
 	font-size       : 13px;
 	transition      : all .3s ease-in-out;
 	vertical-align  : middle;
+	cursor: pointer;
+	font-family: sans-serif;
+	color: var(--buttonTextColor);
 }
 
-button.s_btn:hover {
+.s_btn:hover {
 	background-color: #f0f0f0;
 }
 
-button:disabled {
+.s_btn:disabled {
 	cursor : default;
 	opacity: 0.5;
 }
 
-button:disabled:hover {
+.s_btn:disabled:hover {
 	background-color: #f7f7f7;
 }
 
-button.s_btn.icon_01 {
+.s_btn.icon_01 {
 	background-image   : url(./images/btn_ico_01.png);
 	background-position: 7px center;
 	background-repeat  : no-repeat;
 	padding-left       : 20px;
 }
 
-button.s_btn.icon_02 {
+.s_btn.icon_02 {
 	background-image   : url(./images/btn_ico_02.png);
 	background-position: 7px center;
 	background-repeat  : no-repeat;
@@ -1283,6 +1288,8 @@ button.s_btn.icon_02 {
 	background-color       : #6c5b51;
 	border-top-left-radius : 10px;
 	border-top-right-radius: 10px;
+	position: relative;
+	top: 1px;
 }
 
 .formTabs a,
@@ -1371,9 +1378,11 @@ label+label, label+select {
 	margin-left: 20px;
 }
 
-input+input, input+button {
+input+input, input+button, span+label {
 	margin-left: 10px;
 }
+
+input.hiddenFile + button { margin-left: 0; }
 
 .rotate180 {
 	transform: rotate(180deg);
@@ -1387,13 +1396,18 @@ input+input, input+button {
 
 .popup { position: fixed; top: 0; left: 0; }
 
-#layers { z-index: 100; position: fixed; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, .5); top: 0; left: 0; display: flex; align-items: center; justify-content: center; }
-.layer { padding: 30px; flex: 0 0 auto; min-width: 500px; min-height: 500px; background-color: white; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+#layers, .dim { z-index: 100; position: fixed; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, .5); top: 0; left: 0; display: flex; align-items: center; justify-content: center; }
+.layer { position: relative; padding: 30px; flex: 0 0 auto; min-width: 500px; min-height: 500px; background-color: white; border-radius: 5px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+.layer.noMin { min-width: auto; min-height: auto; }
 .layer .form_table table { table-layout: auto; }
 .layer > .flex > div {
 	flex: 1;
 	margin: 0 10px;
 }
+
+.closeBox { position: absolute; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; background: url("./images/page_tab_icon_05.png") no-repeat center #333333; cursor: pointer; box-shadow: 2px 2px 10px rgba(0, 0, 0, .5); top: -12px; right: -12px; }
+.layer .closeBox { position: absolute; top: -12px; right: -12px; }
+.layer .closeBox:active { position: absolute; top: -11px; right: -13px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .5); }
 
 .layer .comm_btn {
 	border-top: 1px solid #e3dcd7;
@@ -1441,8 +1455,11 @@ table + .smallNotice { display: inline-block; margin-top: 5px; }
 .layer .pagingList { margin-top: 30px; }
 .layer .pagingList a { flex: 0 1 auto; font-size: 0.9em; }
 
-img.thumb { border: 1px solid #e3dcd7; margin-left: 10px; width: 100px; height:28px; width: auto; object-fit: cover; object-position: center; }
+img.thumb { cursor: pointer; border: 1px solid #e3dcd7; margin-left: 10px; width: 100px; height:28px; width: auto; object-fit: cover; object-position: center; }
+img.thumb:first-child { margin-left: 0; }
 img.thumb:hover { border-color: #989898; }
+
+.pointer { cursor: pointer; }
 
 td > a { display: inline-block; width: 100%; height: 100%; }
 td > a, td > a:link, td > a:hover, td > a:visited, td > a:active { color: var(--fontColor); }
@@ -1455,3 +1472,7 @@ td > a, td > a:link, td > a:hover, td > a:visited, td > a:active { color: var(--
 .correctB-Modal .modal-footer, .correctB-Modal .modal-header {
 	display: none;
 }
+
+.hiddenFile { width: 0 !important; height: 0 !important; opacity: 0; }
+
+.fileInfo { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block; width: 300px; border: 1px solid #ededed; line-height: 28px; padding: 0 10px; height: 28px; vertical-align: middle; ;}

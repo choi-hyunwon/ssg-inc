@@ -109,7 +109,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">신세계 상품권 가이드</td>
 						<td>노출</td>
@@ -121,7 +121,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">신세계 상품권 가이드</td>
 						<td>노출</td>
@@ -133,7 +133,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">신세계 상품권 가이드</td>
 						<td>노출</td>
@@ -145,7 +145,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">신세계 상품권 가이드</td>
 						<td>노출</td>
@@ -157,7 +157,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">신세계 상품권 가이드</td>
 						<td>노출</td>
@@ -215,7 +215,7 @@
 							<input type="file" class="width500" placeholder="파일을 선택하세요." />
 							<button type="button" class="s_btn">파일 검색</button>
 							<button type="button" class="s_btn">파일 삭제</button>
-							<img class="thumb" src />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 					</tr>
 
@@ -223,10 +223,10 @@
 						<th>Mobile</th>
 						<td colspan="3">
 							<span class="tdInfoSpan">000 x 0.00Kb</span>
-							<input type="file" class="width500" placeholder="파일을 선택하세요." />
-							<button type="button" class="s_btn">파일 검색</button>
+							<input type="file" class="width500" id="a" placeholder="파일을 선택하세요." />
+							<button type="button" id="b" class="s_btn">파일 검색</button>
 							<button type="button" class="s_btn">파일 삭제</button>
-							<img class="thumb" src />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 					</tr>
 
@@ -301,6 +301,31 @@ export default {
 		onEndChange(selectedDates, dateStr, instance) {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
+
+		showThumb: function (e) {
+			const src = e.target.getAttribute("src");
+				
+			const dim = document.createElement("div");
+			dim.setAttribute("class", "dim");
+			document.body.appendChild(dim);
+
+			const layer = document.createElement("div");
+			layer.setAttribute("class", "layer noMin");
+			dim.appendChild(layer);
+
+			const img = document.createElement("img");
+			img.setAttribute("src", src);
+			layer.appendChild(img);
+
+			const close = document.createElement("div");
+			close.setAttribute("class", "closeBox");
+			layer.appendChild(close);
+
+			close.addEventListener("click", function(){
+				dim.remove();
+			});
+		}
 	},
 };
+
 </script>

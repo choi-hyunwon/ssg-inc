@@ -42,7 +42,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -53,7 +53,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
             </tbody>
@@ -77,7 +77,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -118,7 +118,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -162,7 +162,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -206,7 +206,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -254,7 +254,7 @@
                         <input class="width500" type="file" />
                         <button class="s_btn">파일검색</button>
                         <button class="s_btn">파일삭제</button>
-						<img class="thumb" src="" />
+						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 
                     </td>
                 </tr>
@@ -429,8 +429,32 @@ export default {
 
         $setTabs: function $setTabs (activeTab) {
             this.activeTab = activeTab
-        }
-    },
+		},
+		
+		showThumb: function (e) {
+			const src = e.target.getAttribute("src");
+				
+			const dim = document.createElement("div");
+			dim.setAttribute("class", "dim");
+			document.body.appendChild(dim);
+
+			const layer = document.createElement("div");
+			layer.setAttribute("class", "layer noMin");
+			dim.appendChild(layer);
+
+			const img = document.createElement("img");
+			img.setAttribute("src", src);
+			layer.appendChild(img);
+
+			const close = document.createElement("div");
+			close.setAttribute("class", "closeBox");
+			layer.appendChild(close);
+
+			close.addEventListener("click", function(){
+				dim.remove();
+			});
+		}
+    }
 };
 </script>
 

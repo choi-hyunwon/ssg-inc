@@ -201,7 +201,7 @@
 				<tr>
                     <th class="e">이미지</th>
                     <td colspan="3">
-                        <input type="file" /><button class="s_btn">파일검색</button><button class="s_btn">파일삭제</button>
+                        <span class="fileInfo"></span><label class="s_btn"><input class="hiddenFile" type="file" @change="getFileInfo" />파일검색</label><button class="s_btn" @click="deleteFile">파일삭제</button><img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
 
@@ -316,10 +316,10 @@
             },
             $onEditorReady: function $onEditorReady(quill) {},
             $onEditorChange: function $onEditorChange({
-                                                          quill,
-                                                          html,
-                                                          text
-                                                      }) {
+				quill,
+				html,
+				text
+			}) {
                 if (this.quillEditor.getLength() > this.editorLimit) {
                     this.quillEditor.deleteText(this.editorLimit, this.quillEditor.getLength());
                 }
@@ -358,7 +358,51 @@
 
             $setTabs: function $setTabs (activeTab) {
                 this.activeTab = activeTab
-            }
+			},
+			
+			showThumb: function (e) {
+				const src = e.target.getAttribute("src");
+					
+				const dim = document.createElement("div");
+				dim.setAttribute("class", "dim");
+				document.body.appendChild(dim);
+
+				const layer = document.createElement("div");
+				layer.setAttribute("class", "layer noMin");
+				dim.appendChild(layer);
+
+				const img = document.createElement("img");
+				img.setAttribute("src", src);
+				layer.appendChild(img);
+
+				const close = document.createElement("div");
+				close.setAttribute("class", "closeBox");
+				layer.appendChild(close);
+
+				close.addEventListener("click", function(){
+					dim.remove();
+				});
+			},
+
+			getFileInfo: function (e){
+				var filename;
+				const input = e.target;
+				if(window.FileReader){
+					filename = input.files[0].name;
+				} else {
+					filename = input.value.split('/').pop().split('\\').pop();
+				}
+				const label = input.parentNode;
+				label.previousSibling.innerHTML = filename;
+			},
+
+			deleteFile: function (e) {
+				const button = e.target;
+				const td = button.parentNode;
+				td.querySelector(".fileInfo").innerHTML = "";
+				const input = td.querySelector("input[type='file']");
+				input.value = "";
+			}
         }
     }
 </script>

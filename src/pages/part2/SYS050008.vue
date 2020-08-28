@@ -128,7 +128,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">힘내요 대한 민국</td>
 						<td>2020-08-21 ~ 2020-09-01</td>
@@ -144,7 +144,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">힘내요 대한 민국</td>
 						<td>2020-08-21 11:23:23</td>
@@ -159,38 +159,7 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">힘내요 대한 민국</td>
 						<td>2020-08-21 11:23:23</td>
@@ -206,7 +175,38 @@
 						</td>
 						<td>100</td>
 						<td>
-							<img class="couponImage" src="@/images/coupon.png" alt />
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
+						</td>
+						<td class="left">힘내요 대한 민국</td>
+						<td>2020-08-21 11:23:23</td>
+						<td>윤도현 밴드</td>
+						<td>참여형</td>
+						<td>노출</td>
+						<td>2020-09-21 11;32;34</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>100</td>
+						<td>
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
+						</td>
+						<td class="left">힘내요 대한 민국</td>
+						<td>2020-08-21 11:23:23</td>
+						<td>윤도현 밴드</td>
+						<td>참여형</td>
+						<td>노출</td>
+						<td>2020-09-21 11;32;34</td>
+					</tr>
+
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>100</td>
+						<td>
+							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 						<td class="left">힘내요 대한 민국</td>
 						<td>2020-08-21 11:23:23</td>
@@ -283,6 +283,30 @@ export default {
 		onEndChange(selectedDates, dateStr, instance) {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
+
+		showThumb: function (e) {
+			const src = e.target.getAttribute("src");
+				
+			const dim = document.createElement("div");
+			dim.setAttribute("class", "dim");
+			document.body.appendChild(dim);
+
+			const layer = document.createElement("div");
+			layer.setAttribute("class", "layer noMin");
+			dim.appendChild(layer);
+
+			const img = document.createElement("img");
+			img.setAttribute("src", src);
+			layer.appendChild(img);
+
+			const close = document.createElement("div");
+			close.setAttribute("class", "closeBox");
+			layer.appendChild(close);
+
+			close.addEventListener("click", function(){
+				dim.remove();
+			});
+		}
 	},
 };
 </script>
