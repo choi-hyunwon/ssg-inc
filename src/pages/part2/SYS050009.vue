@@ -44,25 +44,27 @@
 
 					<tr>
 						<th>기간</th>
-						<td class="flex alignCenter">
-							<flat-pickr
-								autocomplete="off"
-								class="width300"
-								v-model="startDate"
-								:config="configs.start"
-								placeholder="시작일자"
-								name="startDate"
-								@on-change="onStartChange"
-							></flat-pickr>~
-							<flat-pickr
-								autocomplete="off"
-								class="width300"
-								v-model="endDate"
-								:config="configs.end"
-								placeholder="종료일자"
-								name="endDate"
-								@on-change="onStartChange"
-							></flat-pickr>
+						<td>
+							<div class="flex alignCenter">
+								<flat-pickr
+									autocomplete="off"
+									class="width300"
+									v-model="startDate"
+									:config="configs.start"
+									placeholder="시작일자"
+									name="startDate"
+									@on-change="onStartChange"
+								></flat-pickr>&nbsp;~&nbsp;
+								<flat-pickr
+									autocomplete="off"
+									class="width300"
+									v-model="endDate"
+									:config="configs.end"
+									placeholder="종료일자"
+									name="endDate"
+									@on-change="onStartChange"
+								></flat-pickr>
+							</div>
 						</td>
 						<th>노출여부</th>
 						<td>
@@ -104,7 +106,9 @@
 
 				<thead>
 					<tr>
-						<th></th>
+						<th>
+							<input type="checkbox" />
+						</th>
 						<th>No</th>
 						<th>제목</th>
 						<th>노출 위치</th>
@@ -120,9 +124,7 @@
 						</td>
 						<td>100</td>
 						<td class="left">일회용컵 없는 날 캠페인</td>
-						<td>
-							<a>노출 위치</a>
-						</td>
+						<td>노출 위치</td>
 						<td>아디다스</td>
 						<td>미노출</td>
 						<td>2020-09-21 11;32;34</td>
@@ -133,9 +135,7 @@
 						</td>
 						<td>99</td>
 						<td class="left">일회용컵 없는 날 캠페인</td>
-						<td>
-							<a>노출 위치</a>
-						</td>
+						<td>노출 위치</td>
 						<td>아디다스</td>
 						<td>미노출</td>
 						<td>2020-09-21 11;32;34</td>
@@ -146,9 +146,7 @@
 						</td>
 						<td>98</td>
 						<td class="left">일회용컵 없는 날 캠페인</td>
-						<td>
-							<a>노출 위치</a>
-						</td>
+						<td>노출 위치</td>
 						<td>아디다스</td>
 						<td>미노출</td>
 						<td>2020-09-21 11;32;34</td>
@@ -159,9 +157,7 @@
 						</td>
 						<td>97</td>
 						<td class="left">일회용컵 없는 날 캠페인</td>
-						<td>
-							<a>노출 위치</a>
-						</td>
+						<td>노출 위치</td>
 						<td>아디다스</td>
 						<td>미노출</td>
 						<td>2020-09-21 11;32;34</td>
@@ -172,9 +168,7 @@
 						</td>
 						<td>96</td>
 						<td class="left">일회용컵 없는 날 캠페인</td>
-						<td>
-							<a>노출 위치</a>
-						</td>
+						<td>노출 위치</td>
 						<td>아디다스</td>
 						<td>미노출</td>
 						<td>2020-09-21 11;32;34</td>
@@ -206,65 +200,71 @@
 
 		<v-tabs>
 			<ul class="formTabs withLine">
-				<li @click="$setTabs(tab.id)" v-for="tab of tabs" :key="tab.id" :class="{'on' : tab.id === activeTab}">
+				<li
+					@click="$setTabs(tab.id)"
+					v-for="tab of tabs"
+					:key="tab.id"
+					:class="{'on' : tab.id === activeTab}"
+				>
 					<v-tab>{{ tab.title}}</v-tab>
 				</li>
 			</ul>
+			<v-tab-item v-for="tab of tabs" :key="tab.id">
+				<div class="form_table">
+					<table>
+						<colgroup>
+							<col style="width: 150px;" />
+							<col style="width: auto;" />
+							<col style="width: 150px;" />
+							<col style="width: auto;" />
+						</colgroup>
+
+						<tbody>
+							<tr>
+								<th class="e">제목</th>
+								<td colspan="3">
+									<input type="text" />
+								</td>
+							</tr>
+							<tr>
+								<th>내용</th>
+								<td colspan="3">
+									<div class="example">
+										<quill-editor
+											ref="myQuillEditor"
+											:options="editorOption"
+											name="testConts"
+											v-validate="'required'"
+											v-model="sampleEditor.testConts"
+											data-vv-as="내용"
+											@blur="$onEditorBlur($event)"
+											@focus="$onEditorFocus($event)"
+											@ready="$onEditorReady($event)"
+											@change="$onEditorChange($event)"
+											class="editor text-left"
+											:class="{'select': true, 'is-invalid': errors.has('testConts')}"
+										></quill-editor>
+									</div>
+									<div class="inp_tip">
+										<span
+											v-show="errors.has('testConts')"
+											class="help is-invalid"
+										>{{ errors.first('testConts') }}</span>
+									</div>
+								</td>
+							</tr>
+
+							<tr>
+								<th>등록일</th>
+								<td>2020.12.31 11:23:24</td>
+								<th>수정일</th>
+								<td>2020.12.31 11:23:24</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</v-tab-item>
 		</v-tabs>
-
-		<div class="form_table">
-			<table>
-				<colgroup>
-					<col style="width: 150px;" />
-					<col style="width: auto;" />
-					<col style="width: 150px;" />
-					<col style="width: auto;" />
-				</colgroup>
-
-				<tbody>
-					<tr>
-						<th class="e">제목</th>
-						<td colspan="3">
-							<input type="text" />
-						</td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td colspan="3">
-							<div class="example">
-								<quill-editor
-									ref="myQuillEditor"
-									:options="editorOption"
-									name="testConts"
-									v-validate="'required'"
-									v-model="sampleEditor.testConts"
-									data-vv-as="내용"
-									@blur="$onEditorBlur($event)"
-									@focus="$onEditorFocus($event)"
-									@ready="$onEditorReady($event)"
-									@change="$onEditorChange($event)"
-									class="editor text-left"
-									:class="{'select': true, 'is-invalid': errors.has('testConts')}"
-								></quill-editor>
-							</div>
-							<div class="inp_tip">
-								<span
-									v-show="errors.has('testConts')"
-									class="help is-invalid"
-								>{{ errors.first('testConts') }}</span>
-							</div>
-						</td>
-					</tr>
-
-					<tr>
-						<th>등록일</th>
-						<td>2020.12.31 11:23:24</td>
-						<th>수정일</th>
-						<td>2020.12.31 11:23:24</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 
 		<div class="con_tit">
 			<h3>공통 정보 관리</h3>
@@ -340,11 +340,11 @@ export default {
 		"page-title": PageTitle,
 	},
 
-    watch: {
-        '$route.path': function () {
-            this.activeTab = 0
-        }
-    },
+	watch: {
+		"$route.path": function () {
+			this.activeTab = 0;
+		},
+	},
 
 	data() {
 		return {
@@ -385,7 +385,7 @@ export default {
 				placeholder: "내용을 입력하세요.",
 			},
 
-			editorLimit: 50,
+			editorLimit: 0, // 무제한
 			startDate: "",
 			endDate: "",
 			updateDate: "",
@@ -410,13 +410,13 @@ export default {
 				},
 			},
 
-            activeTab: 0,
-            tabs: [
-                { id: 0, title: '한국어', content: '' },
-                { id: 1, title: '영어', content: '' },
-                { id: 2, title: '일본어', content: '' },
-                { id: 3, title: '중국어', content: '' }
-            ]
+			activeTab: 0,
+			tabs: [
+				{ id: 0, title: "한국어", content: "" },
+				{ id: 1, title: "영어", content: "" },
+				{ id: 2, title: "일본어", content: "" },
+				{ id: 3, title: "중국어", content: "" },
+			],
 		};
 	},
 
@@ -434,18 +434,15 @@ export default {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
 		$onEditorBlur: function $onEditorBlur(quill) {
-			console.log("editor blur!", quill);
+			// console.log("editor blur!", quill);
 		},
 		$onEditorFocus: function $onEditorFocus(quill) {
-			console.log("editor focus!", quill);
+			// console.log("editor focus!", quill);
 		},
 		$onEditorReady: function $onEditorReady(quill) {},
 		$onEditorChange: function $onEditorChange({ quill, html, text }) {
-			if (this.quillEditor.getLength() > this.editorLimit) {
-				this.quillEditor.deleteText(
-					this.editorLimit,
-					this.quillEditor.getLength()
-				);
+			if (this.editorLimit && quill.getLength() > this.editorLimit) {
+				quill.deleteText(this.editorLimit, quill.getLength());
 			}
 		},
 
@@ -480,9 +477,9 @@ export default {
 			});
 		},
 
-        $setTabs: function $setTabs (activeTab) {
-            this.activeTab = activeTab
-        }
+		$setTabs: function $setTabs(activeTab) {
+			this.activeTab = activeTab;
+		},
 	},
 };
 </script>

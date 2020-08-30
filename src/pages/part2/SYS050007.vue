@@ -52,8 +52,7 @@
 								placeholder="시작일자"
 								name="startDate"
 								@on-change="onStartChange"
-							></flat-pickr> ~
-							<flat-pickr
+							></flat-pickr> ~<flat-pickr
 								autocomplete="off"
 								class="width300"
 								v-model="endDate"
@@ -212,9 +211,11 @@
 						<th>PC</th>
 						<td colspan="3">
 							<span class="tdInfoSpan">000 x 0.00Kb</span>
-							<input type="file" class="width500" placeholder="파일을 선택하세요." />
-							<button type="button" class="s_btn">파일 검색</button>
-							<button type="button" class="s_btn">파일 삭제</button>
+							<span class="fileInfo placeholder">파일을 선택하세요.</span>
+							<label class="s_btn">
+								<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+							</label>
+							<button class="s_btn" @click="deleteFile">파일삭제</button>
 							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 					</tr>
@@ -223,9 +224,11 @@
 						<th>Mobile</th>
 						<td colspan="3">
 							<span class="tdInfoSpan">000 x 0.00Kb</span>
-							<input type="file" class="width500" id="a" placeholder="파일을 선택하세요." />
-							<button type="button" id="b" class="s_btn">파일 검색</button>
-							<button type="button" class="s_btn">파일 삭제</button>
+							<span class="fileInfo placeholder">파일을 선택하세요.</span>
+							<label class="s_btn">
+								<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+							</label>
+							<button class="s_btn" @click="deleteFile">파일삭제</button>
 							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 					</tr>
@@ -261,6 +264,7 @@
 
 <script>
 import Vue from "vue";
+import commonUtils from "@/plugins/commonUtils";
 import { Korean } from "flatpickr/dist/l10n/ko";
 
 export default {
@@ -302,29 +306,9 @@ export default {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
 
-		showThumb: function (e) {
-			const src = e.target.getAttribute("src");
-				
-			const dim = document.createElement("div");
-			dim.setAttribute("class", "dim");
-			document.body.appendChild(dim);
-
-			const layer = document.createElement("div");
-			layer.setAttribute("class", "layer noMin");
-			dim.appendChild(layer);
-
-			const img = document.createElement("img");
-			img.setAttribute("src", src);
-			layer.appendChild(img);
-
-			const close = document.createElement("div");
-			close.setAttribute("class", "closeBox");
-			layer.appendChild(close);
-
-			close.addEventListener("click", function(){
-				dim.remove();
-			});
-		}
+		showThumb: commonUtils.showThumb,
+		getFileInfo: commonUtils.getFileInfo,
+		deleteFile: commonUtils.deleteFile
 	},
 };
 

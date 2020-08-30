@@ -1,3 +1,4 @@
+
 <template>
 <div>
     <div class="page_tit">
@@ -20,7 +21,10 @@
                 <v-tab>{{ tab.title}}</v-tab>
             </li>
         </ul>
-    </v-tabs>
+
+		<v-tab-item v-for="tab of tabs" :key="tab.id">
+
+		
 
     <div class="con_tit">
         <h3>상단 멤버십 소개</h3>
@@ -39,9 +43,11 @@
                     <th>PC</th>
                     <td>
                         <span class="tdInfoSpan">000 x 000, 18Mb</span>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+						<span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -50,9 +56,11 @@
                     <th>Mobile</th>
                     <td>
                         <span class="tdInfoSpan">000 x 000, 27Mb</span>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+						<span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -74,9 +82,11 @@
                 <tr>
                     <th class="e">이미지</th>
                     <td>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -115,9 +125,11 @@
                     <th class="e" rowspan="3">혜택 1</th>
                     <td class="e center">이미지</td>
                     <td>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -126,7 +138,7 @@
                     <td class="center">혜택명</td>
                     <td>
                         <span class="tdInfoSpan">최대 10자</span>
-                        <input type="text" class="width500" />
+                        <input type="text" maxlength="10" class="width500" />
                     </td>
                 </tr>
 
@@ -134,7 +146,7 @@
                     <td class="center">혜택내용</td>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -159,9 +171,11 @@
                     <th class="e" rowspan="3">혜택 2</th>
                     <td class="e center">이미지</td>
                     <td>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -170,7 +184,7 @@
                     <td class="center">혜택명</td>
                     <td>
                         <span class="tdInfoSpan">최대 10자</span>
-                        <input type="text" class="width500" />
+                        <input type="text" maxlength="10" class="width500" />
                     </td>
                 </tr>
 
@@ -178,7 +192,7 @@
                     <td class="center">혜택내용</td>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -203,9 +217,11 @@
                     <th class="e" rowspan="3">혜택 3</th>
                     <td class="e center">이미지</td>
                     <td>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -214,7 +230,7 @@
                     <td class="center">혜택명</td>
                     <td>
                         <span class="tdInfoSpan">최대 10자</span>
-                        <input type="text" class="width500" />
+                        <input type="text" class="width500" maxlength="10" />
                     </td>
                 </tr>
 
@@ -222,7 +238,7 @@
                     <td class="center">혜택내용</td>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -235,7 +251,7 @@
     </div>
 
     <div class="con_tit">
-        <h3>혜택 상세</h3>
+        <h3>앱 소개</h3>
     </div>
 
     <div class="form_table">
@@ -251,9 +267,11 @@
                     <th class="e center" colspan="2">이미지</th>
                     <td>
                         <span class="tdInfoSpan">000 x 000, 18Mb</span>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 
                     </td>
@@ -278,7 +296,8 @@
             </tbody>
         </table>
     </div>
-
+</v-tab-item>
+    </v-tabs>
 </div>
 </template>
 
@@ -357,7 +376,7 @@ export default {
                 placeholder: "내용을 입력하세요.",
             },
 
-            editorLimit: 50,
+            editorLimit: 0, // 무제한
 
             activeTab: 0,
             tabs: [
@@ -377,10 +396,10 @@ export default {
 
     methods: {
         $onEditorBlur: function $onEditorBlur(quill) {
-            console.log("editor blur!", quill);
+            // console.log("editor blur!", quill);
         },
         $onEditorFocus: function $onEditorFocus(quill) {
-            console.log("editor focus!", quill);
+            // console.log("editor focus!", quill);
         },
         $onEditorReady: function $onEditorReady(quill) {},
         $onEditorChange: function $onEditorChange({
@@ -388,10 +407,10 @@ export default {
             html,
             text
         }) {
-            if (this.quillEditor.getLength() > this.editorLimit) {
-                this.quillEditor.deleteText(
+            if ( this.editorLimit && quill.getLength() > this.editorLimit) {
+                quill.deleteText(
                     this.editorLimit,
-                    this.quillEditor.getLength()
+                    quill.getLength()
                 );
             }
         },
@@ -453,7 +472,10 @@ export default {
 			close.addEventListener("click", function(){
 				dim.remove();
 			});
-		}
+		},
+		showThumb: commonUtils.showThumb,
+		getFileInfo: commonUtils.getFileInfo,
+		deleteFile: commonUtils.deleteFile
     }
 };
 </script>

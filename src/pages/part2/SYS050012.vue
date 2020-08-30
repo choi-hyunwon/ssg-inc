@@ -33,21 +33,33 @@
 				<tr>
                     <th>카드 본인인증 Key</th>
                     <td>
-						<input placeholder="파일을 선택하세요." type="file" /><button class="s_btn" type="button">파일검색</button><button class="s_btn" type="button">파일삭제</button>
+						<span class="fileInfo">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
                     </td>
                 </tr>
 
 				<tr>
                     <th>휴대폰 본인인증 Key</th>
                     <td>
-						<input placeholder="파일을 선택하세요." type="file" /><button class="s_btn" type="button">파일검색</button><button class="s_btn" type="button">파일삭제</button>
+						<span class="fileInfo">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
                     </td>
                 </tr>
 
 				<tr>
                     <th>아이핀 본인인증 Key</th>
                     <td>
-						<input placeholder="파일을 선택하세요." type="file" /><button class="s_btn" type="button">파일검색</button><button class="s_btn" type="button">파일삭제</button>
+						<span class="fileInfo">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
                     </td>
                 </tr>
             </tbody>
@@ -59,6 +71,7 @@
 
 <script>
 import Vue from "vue";
+import commonUtils from "@/plugins/commonUtils";
 import {
     Korean
 } from "flatpickr/dist/l10n/ko";
@@ -100,7 +113,9 @@ export default {
         },
         onEndChange(selectedDates, dateStr, instance) {
             this.$set(this.configs.start, "maxDate", dateStr);
-        },
+		},
+		getFileInfo: commonUtils.getFileInfo,
+		deleteFile: commonUtils.deleteFile
     },
 };
 </script>

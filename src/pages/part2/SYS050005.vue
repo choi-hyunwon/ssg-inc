@@ -20,7 +20,9 @@
                 <v-tab>{{ tab.title}}</v-tab>
             </li>
         </ul>
-    </v-tabs>
+		<v-tab-item v-for="tab of tabs" :key="tab.id">
+
+		
 
     <div class="con_tit">
         <h3>상단 등급/혜택 소개</h3>
@@ -39,9 +41,11 @@
                     <th>PC</th>
                     <td>
                         <span class="tdInfoSpan">000 x 000, 18Mb</span>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -50,9 +54,11 @@
                     <th>Mobile</th>
                     <td>
                         <span class="tdInfoSpan">000 x 000, 27Mb</span>
-                        <input class="width500" type="file" />
-                        <button class="s_btn">파일검색</button>
-                        <button class="s_btn">파일삭제</button>
+                        <span class="fileInfo placeholder">파일을 선택하세요.</span>
+						<label class="s_btn">
+							<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
+						</label>
+						<button class="s_btn" @click="deleteFile">파일삭제</button>
 						<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
                     </td>
                 </tr>
@@ -76,7 +82,7 @@
                     <th>쿠폰 이용 안내</th>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -105,14 +111,14 @@
 					<td class="center">제목</td>
 					<td>
 						<span class="tdInfoSpan">최대 10자</span>
-						<input class="width500" type="text" />
+						<input class="width500" maxlength="10" type="text" />
 					</td>
 				</tr>
                 <tr>
 					<td class="center">내용</td>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -136,14 +142,14 @@
 					<td class="center">제목</td>
 					<td>
 						<span class="tdInfoSpan">최대 10자</span>
-						<input class="width500" type="text" />
+						<input class="width500" type="text" maxlength="10" />
 					</td>
 				</tr>
                 <tr>
 					<td class="center">내용</td>
                     <td>
                         <div class="example">
-                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" v-model="sampleEditor.testConts" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
+                            <quill-editor ref="myQuillEditor" :options="editorOption" name="testConts" v-validate="'required'" data-vv-as="내용" @blur="$onEditorBlur($event)" @focus="$onEditorFocus($event)" @ready="$onEditorReady($event)" @change="$onEditorChange($event)" class="editor text-left" :class="{'select': true, 'is-invalid': errors.has('testConts')}"></quill-editor>
                         </div>
                         <div class="inp_tip">
                             <span v-show="errors.has('testConts')" class="help is-invalid">{{ errors.first('testConts') }}</span>
@@ -153,7 +159,8 @@
             </tbody>
         </table>
     </div>
-
+		</v-tab-item>
+    </v-tabs>
 </div>
 </template>
 
@@ -232,7 +239,7 @@ export default {
                 placeholder: "내용을 입력하세요.",
             },
 
-            editorLimit: 50,
+            editorLimit: 0,  // 무제한
 
             activeTab: 0,
             tabs: [
@@ -252,10 +259,10 @@ export default {
 
     methods: {
         $onEditorBlur: function $onEditorBlur(quill) {
-            console.log("editor blur!", quill);
+            // console.log("editor blur!", quill);
         },
         $onEditorFocus: function $onEditorFocus(quill) {
-            console.log("editor focus!", quill);
+            // console.log("editor focus!", quill);
         },
         $onEditorReady: function $onEditorReady(quill) {},
         $onEditorChange: function $onEditorChange({
@@ -263,10 +270,10 @@ export default {
             html,
             text
         }) {
-            if (this.quillEditor.getLength() > this.editorLimit) {
-                this.quillEditor.deleteText(
+            if (this.editorLimit && quill.getLength() > this.editorLimit) {
+                quill.deleteText(
                     this.editorLimit,
-                    this.quillEditor.getLength()
+                    quill.getLength()
                 );
             }
         },
@@ -328,7 +335,10 @@ export default {
 			close.addEventListener("click", function(){
 				dim.remove();
 			});
-		}
+		},
+		showThumb: commonUtils.showThumb,
+		getFileInfo: commonUtils.getFileInfo,
+		deleteFile: commonUtils.deleteFile
     },
 };
 </script>

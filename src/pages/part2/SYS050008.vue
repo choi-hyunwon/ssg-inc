@@ -16,7 +16,6 @@
 			<button type="button">저장</button>
 		</div>
 
-
 		<div class="form_table">
 			<table>
 				<colgroup>
@@ -45,25 +44,27 @@
 
 					<tr>
 						<th>기간</th>
-						<td class="flex alignCenter">
-							<flat-pickr
-								autocomplete="off"
-								class="width300"
-								v-model="startDate"
-								:config="configs.start"
-								placeholder="시작일자"
-								name="startDate"
-								@on-change="onStartChange"
-							></flat-pickr>&nbsp;~&nbsp;
-							<flat-pickr
-								autocomplete="off"
-								class="width300"
-								v-model="endDate"
-								:config="configs.end"
-								placeholder="종료일자"
-								name="endDate"
-								@on-change="onStartChange"
-							></flat-pickr>
+						<td>
+							<div class="flex alignCenter">
+								<flat-pickr
+									autocomplete="off"
+									class="width300"
+									v-model="startDate"
+									:config="configs.start"
+									placeholder="시작일자"
+									name="startDate"
+									@on-change="onStartChange"
+								></flat-pickr>&nbsp;~&nbsp;
+								<flat-pickr
+									autocomplete="off"
+									class="width300"
+									v-model="endDate"
+									:config="configs.end"
+									placeholder="종료일자"
+									name="endDate"
+									@on-change="onStartChange"
+								></flat-pickr>
+							</div>
 						</td>
 						<th>노출여부</th>
 						<td>
@@ -241,13 +242,13 @@
 <script>
 import Vue from "vue";
 import { Korean } from "flatpickr/dist/l10n/ko";
-import SYS050008Popup from '../part2/SYS050008_popup';
+import SYS050008Popup from "../part2/SYS050008_popup";
 
 export default {
 	name: "SYS050008",
-    components: {
-        SYS050008Popup
-    },
+	components: {
+		SYS050008Popup,
+	},
 	data() {
 		return {
 			startDate: "",
@@ -286,7 +287,7 @@ export default {
 
 		showThumb: function (e) {
 			const src = e.target.getAttribute("src");
-				
+
 			const dim = document.createElement("div");
 			dim.setAttribute("class", "dim");
 			document.body.appendChild(dim);
@@ -303,10 +304,10 @@ export default {
 			close.setAttribute("class", "closeBox");
 			layer.appendChild(close);
 
-			close.addEventListener("click", function(){
+			close.addEventListener("click", function () {
 				dim.remove();
 			});
-		}
+		},
 	},
 };
 </script>

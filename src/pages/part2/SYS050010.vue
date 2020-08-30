@@ -202,9 +202,9 @@
 					<tr>
 						<th>버전</th>
 						<td colspan="3">
-							<input class="width100 textCenter" type="text" />
-							<input class="width100 textCenter" type="text" />
-							<input class="width100 textCenter" type="text" />
+							<input class="width100 textCenter" type="number" />
+							<input class="width100 textCenter" type="number" />
+							<input class="width100 textCenter" type="number" />
 							<button type="text" class="s_btn">중복확인</button>
 						</td>
 					</tr>
