@@ -28,9 +28,9 @@
                 <tr>
                     <th>사용여부</th>
                     <td colspan="3">
-                        <select>
-							<option>사용</option>
-							<option>미사용</option>
+                        <select @change="toggleDisabled">
+							<option value="0">미사용</option>
+							<option value="1">사용</option>
                         </select>
                     </td>
                 </tr>
@@ -64,9 +64,9 @@
                 <tr>
                     <th>사용여부</th>
                     <td colspan="3">
-                        <select>
-							<option>사용</option>
-							<option>미사용</option>
+                        <select @change="toggleDisabled">
+							<option value="0">미사용</option>
+							<option value="1" selected>사용</option>
                         </select>
                     </td>
                 </tr>
@@ -100,9 +100,9 @@
                 <tr>
                     <th>사용여부</th>
                     <td colspan="3">
-                        <select>
-							<option>사용</option>
-							<option>미사용</option>
+                        <select @change="toggleDisabled">
+							<option value="0">미사용</option>
+							<option value="1" selected>사용</option>
                         </select>
                     </td>
                 </tr>
@@ -136,9 +136,9 @@
                 <tr>
                     <th>사용여부</th>
                     <td colspan="3">
-                        <select>
-							<option>사용</option>
-							<option>미사용</option>
+                        <select @change="toggleDisabled">
+							<option value="0">미사용</option>
+							<option value="1" selected>사용</option>
                         </select>
                     </td>
                 </tr>
@@ -204,7 +204,20 @@ export default {
         },
         onEndChange(selectedDates, dateStr, instance) {
             this.$set(this.configs.start, "maxDate", dateStr);
-        },
+		},
+		toggleDisabled : function (e) {
+			const value = "1";
+			const tr = e.target.parentElement.parentElement.nextElementSibling;
+			const inputs = tr.querySelectorAll("input[type='text']");
+			inputs.forEach((element) => {
+				if (e.target.value === value) {
+					element.removeAttribute("disabled");
+				} else {
+					element.setAttribute("disabled", "disabled");
+
+				}
+			});
+		}
     },
 };
 </script>
