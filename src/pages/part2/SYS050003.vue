@@ -175,7 +175,7 @@
 								<th>등록일</th>
 								<td colspan="3">2020-05-23 12:34:11</td>
 							</tr>
-							
+
 							<!-- 상세, 수정 -->
 							<tr class="none">
 								<th>등록일</th>
@@ -212,14 +212,16 @@
 						<th>브랜드</th>
 						<td>
 							<span class="searchableList">
-								<input placeholder="브랜드 선택" type="text" @focus="showList" @blur="hideList" @keyup="searchList" />
+								<input
+									placeholder="브랜드 선택"
+									type="text"
+									@focus="showList"
+									@blur="hideList"
+									@keyup="searchList"
+								/>
 								<div>
 									<ul>
-										<li
-										v-for="item of brandList"
-										:key="item"
-										@click="listSelected"
-										>{{ item }}</li>
+										<li v-for="item of brandList" :key="item" @click="listSelected">{{ item }}</li>
 									</ul>
 								</div>
 							</span>
@@ -256,16 +258,6 @@
 <script>
 import Vue from "vue";
 import commonUtils from "@/plugins/commonUtils";
-
-import "quill/dist/quill.core.css";
-import "quill/dist/quill.snow.css";
-import "quill/dist/quill.bubble.css";
-
-import Quill from "quill";
-import { quillEditor } from "vue-quill-editor";
-
-import { ImageDrop } from "quill-image-drop-module";
-Quill.register("modules/imageDrop", ImageDrop);
 
 import PageTitle from "@/components/common/PageTitle";
 
@@ -308,47 +300,9 @@ export default {
 				"제네시스",
 				"애플",
 				"IBM",
-				"Microsoft"
+				"Microsoft",
 			],
 
-			sampleEditor: {
-				testConts: null,
-			},
-			editorOption: {
-				modules: {
-					toolbar: {
-						container: [
-							[
-								{
-									size: ["small", false, "large"],
-								},
-							],
-							["bold", "italic", "underline"],
-							[
-								{
-									list: "ordered",
-								},
-								{
-									list: "bullet",
-								},
-							],
-							["image"],
-						],
-						handlers: {
-							// image: this.$uploadFunction
-						},
-					},
-					history: {
-						delay: 1000,
-						maxStack: 50,
-						userOnly: false,
-					},
-					imageDrop: true,
-				},
-				placeholder: "내용을 입력하세요.",
-			},
-
-			editorLimit: 0, // 무제한
 			activeTab: 0,
 			tabs: [
 				{ id: 0, title: "한국어", content: "모카 프라프치노" },
@@ -359,58 +313,7 @@ export default {
 		};
 	},
 
-	beforeMount: function beforeMount() {},
-
-	mounted: function mounted() {},
-
 	methods: {
-		$onEditorBlur: function $onEditorBlur(quill) {
-			// console.log("editor blur!", quill);
-		},
-		$onEditorFocus: function $onEditorFocus(quill) {
-			// console.log("editor focus!", quill);
-		},
-		$onEditorReady: function $onEditorReady(quill) {},
-		$onEditorChange: function $onEditorChange({ quill, html, text }) {
-			if (this.editorLimit && quill.getLength() > this.editorLimit) {
-				quill.deleteText(
-					this.editorLimit,
-					quill.getLength()
-				);
-			}
-		},
-
-		$uploadFunction: function $uploadFunction(e) {
-			const input = document.createElement("input");
-			input.setAttribute("type", "file");
-			input.setAttribute("accept", "image/*");
-			input.click();
-
-			input.onchange = async () => {
-				const file = input.files[0];
-				const formData = new FormData();
-				formData.append("image", file);
-
-				//const range = this.quillEditor.getSelection(true);
-				//this.quillEditor.setSelection(range.index + 1);
-
-				// 파일업로드
-				//this.quillEditor.insertEmbed(range.index, 'image', file); //임시
-			};
-		},
-
-		$beforeSave: function $beforeSave() {
-			const _this = this;
-
-			_this.$validator.validateAll().then((isValid) => {
-				if (isValid) {
-					console.log("저장");
-				} else {
-					commonUtils.$alertValidationError(_this.$validator);
-				}
-			});
-		},
-
 		$setTabs: function $setTabs(activeTab) {
 			this.activeTab = activeTab;
 		},
@@ -418,46 +321,45 @@ export default {
 		showThumb: commonUtils.showThumb,
 		getFileInfo: commonUtils.getFileInfo,
 		deleteFile: commonUtils.deleteFile,
-		listSelected: function(e) {
+		listSelected: function (e) {
 			const value = e.target.innerHTML;
 			const ul = e.target.parentElement;
 			const input = ul.parentElement.previousElementSibling;
 			input.value = value;
 		},
-		showList: function(e) {
+		showList: function (e) {
 			const span = e.target.parentElement;
 			const div = span.querySelector("div");
 			div.style.display = "block";
 		},
-		hideList: function(e) {
+		hideList: function (e) {
 			const span = e.target.parentElement;
 			const div = span.querySelector("div");
 			setTimeout(() => {
 				div.style.display = "none";
 			}, 200);
 		},
-		searchList: function(e){
+		searchList: function (e) {
 			const val = e.target.value;
 			const div = e.target.nextElementSibling;
 			const list = div.querySelectorAll("li");
 			if (val) {
 				const patt = new RegExp(val, "i");
-				list.forEach(function(element){
-					const value = element.innerHTML;
+
+				for (var i = 0; i < list.length; i++) {
+					const value = list[i].innerHTML;
 					if (patt.test(value)) {
-						element.style.display = "list-item";
+						list[i].style.display = "list-item";
 					} else {
-						element.style.display = "none";
+						list[i].style.display = "none";
 					}
-				});
+				}
 			} else {
-				list.forEach(function(element){
-					element.style.display = "list-item";
-				});
+				for (var i = 0; i < list.length; i++) {
+					list[i].style.display = "list-item";
+				}
 			}
-		}
-
-
+		},
 	},
 };
 </script>

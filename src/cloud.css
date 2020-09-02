@@ -1704,3 +1704,6 @@ td>a:active {
 	background-color: transparent;
 	padding-right: 30px;
 }
+
+
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

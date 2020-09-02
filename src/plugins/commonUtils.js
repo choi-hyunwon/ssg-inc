@@ -121,7 +121,7 @@ export default {
 		layer.appendChild(close);
 
 		close.addEventListener("click", function(){
-			dim.remove();
+			dim.parentElement.removeChild(dim);
 		});
 	},
 

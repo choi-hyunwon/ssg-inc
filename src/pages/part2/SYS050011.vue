@@ -209,14 +209,18 @@ export default {
 			const value = "1";
 			const tr = e.target.parentElement.parentElement.nextElementSibling;
 			const inputs = tr.querySelectorAll("input[type='text']");
-			inputs.forEach((element) => {
+			
+			for(var i = 0; i < inputs.length; i++) {
 				if (e.target.value === value) {
-					element.removeAttribute("disabled");
+					inputs[i].removeAttribute("disabled");
 				} else {
-					element.setAttribute("disabled", "disabled");
+					inputs[i].setAttribute("disabled", "disabled");
 
 				}
-			});
+
+			}
+			
+			
 		}
     },
 };
