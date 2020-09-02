@@ -1456,6 +1456,8 @@ input.hiddenFile+button {
 	justify-content : center;
 }
 
+
+
 .layer {
 	position        : relative;
 	padding         : 30px;
@@ -1465,6 +1467,7 @@ input.hiddenFile+button {
 	background-color: white;
 	border-radius   : 5px;
 	box-shadow      : 2px 2px 10px rgba(0, 0, 0, 0.2);
+	min-width: 700px;
 }
 
 .layer.noMin {
@@ -1707,3 +1710,8 @@ td>a:active {
 
 
 .ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+#layer008 { min-width: 1000px; }
+#dataLayer { width: 1000px; }
+/* #dataTable { width: 400px; } */
+/* .layer table { table-layout: fixed; } */

@@ -103,7 +103,7 @@
 					<col style="width:80px" />
 					<col style="width:auto" />
 					<col style="width:200px" />
-					<col style="width:100px" />
+					<col style="width:130px" />
 					<col style="width:80px" />
 					<col style="width:80px" />
 					<col style="width:150px" />
@@ -123,99 +123,25 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+
+					<tr v-for="data of eventData" :key="data.idx">
+						<td><input type="checkbox" name="evenntCheck" /></td>
+						<td>{{ data.idx }}</td>
 						<td>
-							<input type="checkbox" />
+							<img class="thumb" @click="showThumb" :src="data.image" />
 						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 ~ 2020-09-01</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
+						<td class="left ellipsis">{{ data.name }}</td>
+						<td>{{ data.startDate.substring(0, 10) }} ~ {{ data.endDate.substring(0, 10) }}</td>
+						<td>{{ data.brand }}</td>
+						<td v-if="data.type =='a'">전체</td>
+						<td v-if="data.type =='b'">침여형</td>
+						<td v-if="data.type =='c'">룰렛형</td>
+						<td v-if="data.type =='d'">스템프형</td>
+						<td v-if="data.exposed">노출</td>
+						<td v-else>미노출</td>
+						<td>{{ data.regDate }}</td>
 					</tr>
 
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
-
-					<tr>
-						<td>
-							<input type="checkbox" />
-						</td>
-						<td>100</td>
-						<td>
-							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
-						</td>
-						<td class="left">힘내요 대한 민국</td>
-						<td>2020-08-21 11:23:23</td>
-						<td>윤도현 밴드</td>
-						<td>참여형</td>
-						<td>노출</td>
-						<td>2020-09-21 11;32;34</td>
-					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -251,6 +177,105 @@ export default {
 	},
 	data() {
 		return {
+			eventData : [
+				{
+					idx: 1,
+					name:"힘내요 대한민국",
+					startDate: "2020-08-21 11:00:00",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: true,
+					type: "a",
+					brand: "스타벅스",
+					exposed: false,
+					image: "../../images/coupon.png"
+				},
+				{
+					idx: 2,
+					name:"가정의 달, 돌려라 돌려~",
+					startDate: "1987-08-21",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: false,
+					type: "b",
+					brand: "아디다스",
+					exposed: true,
+					image: "../../images/coupon.png"
+				},
+				{
+					idx: 3,
+					name:"릴레이 스탬프 이벤트",
+					startDate: "1425-08-21 00:00:00",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: false,
+					type: "c",
+					brand: "나이키",
+					exposed: true,
+					image: "../../images/coupon.png"
+				},
+				{
+					idx: 4,
+					name:"하늘보리 꿀나라 이벤트",
+					startDate: "2000-08-23 00:00:00",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: true,
+					type: "d",
+					brand: "프로스펙스",
+					exposed: false,
+					image: "../../images/coupon.png"
+				},
+				{
+					idx: 5,
+					name:"드림콘서트 이벤트",
+					startDate: "2020-08-23 00:00:00",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: true,
+					type: "a",
+					brand: "SM 엔터테인먼트",
+					exposed: true,
+					image: "../../images/coupon.png"
+				},
+				{
+					idx: 6,
+					name:"이승환 콘서트",
+					startDate: "1745-09-20",
+					startHour: "12",
+					startMinute: "35",
+					endDate: "2020-11-20",
+					endHour: "14",
+					endMinute: "23",
+					regDate: "2020-07-11 13:01:34",
+					always: false,
+					type: "a",
+					brand: "드림 팩토리",
+					exposed: true,
+					image: "../../images/coupon.png"
+				}
+
+			],
 			startDate: "",
 			endDate: "",
 			monthDate: "",

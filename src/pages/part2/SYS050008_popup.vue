@@ -3,13 +3,13 @@
 		<slot :togglePopup="togglePopup"></slot>
 		<b-modal  v-model="showPopup">
 			<div id="layers">
-			<div class="layer flex column">
+			<div class="layer flex column" id="layer008">
 				<div class="page_tit">
 					<button type="button" class="floatRight c_btn">조회</button>
 					<h2>이벤트 게시 관리</h2>
 				</div>
 				<div class="form_table">
-					<table>
+					<table id="firstTable">
 						<colgroup>
 							<col style="width: 100px" />
 							<col style="width: auto" />
@@ -30,7 +30,7 @@
 							<h3>이벤트 목록</h3>
 							<span class="smallNotice">※ 이벤트 메뉴에 게시할 상품을 선택해주세요.</span>
 						</div>
-						<table>
+						<table id="firstTable">
 							<colgroup>
 								<col style="width:30px" />
 								<col style="width:50px" />
@@ -120,12 +120,12 @@
 						<div class="con_tit">
 							<h3>게시 이벤트</h3>
 						</div>
-						<table>
+						<table id="secondTable">
 							<colgroup>
 								<col style="width:30px" />
 								<col style="width:50px" />
 								<col style="width:180px" />
-								<col style="width:250px" />
+								<col style="width:300px" />
 							</colgroup>
 							<thead>
 								<tr>
@@ -138,7 +138,84 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr v-for="data of eventData" :key="data.idx">
+									<td><input type="checkbox" /></td>
+									<td>{{ data.idx }}</td>
+									<td>{{ data.name }}</td>
+									<td class="left doubleLine">
+										<label>
+											<label><input type="checkbox" :checked="data.always" />항시</label>
+										</label>
+										<br />
+										<flat-pickr
+											autocomplete="off"
+											class="width100"
+											:config="configs.start"
+											placeholder="시작일자"
+											name="startDate"
+											@on-change="onStartChange"
+											:value="data.startDate"
+										></flat-pickr>
+										<select>
+											<option v-for="hour in 24" :value="hour" :key="hour">{{ 10 > hour - 1 ? '0' + (hour - 1) : hour - 1}}</option>
+										</select>
+										<select>
+											<option v-for="minute in 60" :value="minute" :key="minute">{{ 10 > minute - 1 ? '0' + (minute - 1) : minute - 1}}</option>
+										</select>
+										<br />
+										<flat-pickr
+											autocomplete="off"
+											class="width100"
+											:config="configs.end"
+											placeholder="종료일자"
+											name="endDate"
+											@on-change="onEndChange"
+											:value="data.endDate"
+										></flat-pickr>
+
+										<select>
+											<option value>00</option>
+											<option value>01</option>
+											<option value>02</option>
+											<option value>03</option>
+											<option value>04</option>
+											<option value>05</option>
+											<option value>06</option>
+											<option value>07</option>
+											<option value>08</option>
+											<option value>09</option>
+											<option value>10</option>
+											<option value>11</option>
+											<option value>12</option>
+											<option value>13</option>
+											<option value>14</option>
+											<option value>15</option>
+											<option value>16</option>
+											<option value>17</option>
+											<option value>18</option>
+											<option value>19</option>
+											<option value>20</option>
+											<option value>21</option>
+											<option value>22</option>
+											<option value>23</option>
+										</select>
+
+										<select>
+											<option>00</option>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option>08</option>
+											<option>09</option>
+											<option>10</option>
+										</select>
+									</td>
+								</tr>
+								<!-- <tr>
 									<td>
 										<input type="checkbox" />
 									</td>
@@ -589,7 +666,7 @@
 											<option>10</option>
 										</select>
 									</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 						<div class="textRight marginTop10">
@@ -619,6 +696,7 @@
 import Vue from "vue";
 import { Korean } from "flatpickr/dist/l10n/ko";
 import { BModal , VBModal} from 'bootstrap-vue'
+
 Vue.component('b-modal', BModal)
 Vue.directive('b-modal', VBModal)
 
@@ -627,19 +705,16 @@ export default {
 
 	data() {
 		return {
-			startDate: "",
-			endDate: "",
-			monthDate: "",
-
+			eventData: null,
 			configs: {
 				start: {
 					allowInput: true,
 					dateFormat: "Y-m-d",
 					altFormat: "Y-m-d",
-					minDate: new Date(),
+					minDate: null,
 					maxDate: null,
 					method: function () {
-						cosole.log(arguments);
+						console.log(arguments);
 					},
 				},
 
@@ -653,6 +728,11 @@ export default {
 
             showPopup: false
 		};
+	},
+
+	mounted() {
+		this.eventData = this.$parent.eventData;
+		// flatpickr('#datePicker');
 	},
 
 	methods: {
