@@ -354,7 +354,12 @@ export default {
 
 	methods: {
 		
-
+		onStartChange(selectedDates, dateStr, instance) {
+			this.$set(this.configs.end, "minDate", dateStr);
+		},
+		onEndChange(selectedDates, dateStr, instance) {
+			this.$set(this.configs.start, "maxDate", dateStr);
+		},
 		
 
 
