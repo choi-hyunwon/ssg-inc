@@ -169,6 +169,7 @@
 import Vue from "vue";
 import { Korean } from "flatpickr/dist/l10n/ko";
 import SYS050008Popup from "../part2/SYS050008_popup";
+import commonUtils from "@/plugins/commonUtils";
 
 export default {
 	name: "SYS050008",
@@ -310,29 +311,7 @@ export default {
 			this.$set(this.configs.start, "maxDate", dateStr);
 		},
 
-		showThumb: function (e) {
-			const src = e.target.getAttribute("src");
-
-			const dim = document.createElement("div");
-			dim.setAttribute("class", "dim");
-			document.body.appendChild(dim);
-
-			const layer = document.createElement("div");
-			layer.setAttribute("class", "layer noMin");
-			dim.appendChild(layer);
-
-			const img = document.createElement("img");
-			img.setAttribute("src", src);
-			layer.appendChild(img);
-
-			const close = document.createElement("div");
-			close.setAttribute("class", "closeBox");
-			layer.appendChild(close);
-
-			close.addEventListener("click", function () {
-				dim.remove();
-			});
-		},
+		showThumb: commonUtils.showThumb
 	},
 };
 </script>
