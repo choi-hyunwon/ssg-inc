@@ -44,6 +44,7 @@ module.exports = {
 			alias: {
 				"@": path.join(__dirname, "src/")
 			}
-		}
+		},
+		entry : ["babel-polyfill", "./src/main.js"]
 	}
 }
