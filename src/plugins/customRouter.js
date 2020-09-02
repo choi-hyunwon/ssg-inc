@@ -50,8 +50,8 @@ export default {
 
         _this.$router = new Router({
             base: '/',
-            mode: 'hash',   // 주소에 '#' 기본모드가 'hash' mode 를  'history' 로 변경 하면 # 없어진다.
-//            mode: 'history',
+//            mode: 'hash',   // 주소에 '#' 기본모드가 'hash' mode 를  'history' 로 변경 하면 # 없어진다.
+            mode: 'history',
             routes: [
             {
                 path: '/',
