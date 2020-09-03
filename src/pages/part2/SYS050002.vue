@@ -40,7 +40,7 @@
 							<label>
 								<input type="checkbox" />포인트적립
 							</label>
-							<label>
+							<label class="margin-left_10">
 								<input type="checkbox" />포인트사용
 							</label>
 						</td>

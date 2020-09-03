@@ -233,7 +233,7 @@
 							<label class="s_btn">
 								<input class="hiddenFile" type="file" @change="getFileInfo" />파일검색
 							</label>
-							<button class="s_btn" @click="deleteFile">파일삭제</button>
+							<button class="s_btn margin-left_10" @click="deleteFile">파일삭제</button>
 							<img class="thumb" @click="showThumb" src="../../images/coupon.png" />
 						</td>
 					</tr>
