@@ -1405,16 +1405,16 @@ label>input[type='radio'] {
 	margin-right: 6px;
 }
 
-label+label,
+/* label+label,
 label+select {
 	margin-left: 20px;
-}
+} */
 
-input+input,
+/* input+input,
 input+button,
 span+label {
 	margin-left: 10px;
-}
+} */
 
 input.hiddenFile+button {
 	margin-left: 0;
