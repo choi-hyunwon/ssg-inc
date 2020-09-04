@@ -9,6 +9,7 @@
 <!-- style src="@/vendor/styles/uikit.scss" lang="scss"></style -->
 <!-- style src="./style.scss" lang="scss"></style -->
 <style src="./cloud.css" lang="css"></style>
+<style src="./cloud2.css" lang="css"></style>
 
 <script>
 export default {

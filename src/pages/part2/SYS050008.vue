@@ -242,38 +242,6 @@ export default {
 					brand: "프로스펙스",
 					exposed: false,
 					image: "../../images/coupon.png"
-				},
-				{
-					idx: 5,
-					name:"드림콘서트 이벤트",
-					startDate: "2020-08-23 00:00:00",
-					startHour: "12",
-					startMinute: "35",
-					endDate: "2020-11-20",
-					endHour: "14",
-					endMinute: "23",
-					regDate: "2020-07-11 13:01:34",
-					always: true,
-					type: "a",
-					brand: "SM 엔터테인먼트",
-					exposed: true,
-					image: "../../images/coupon.png"
-				},
-				{
-					idx: 6,
-					name:"이승환 콘서트",
-					startDate: "1745-09-20",
-					startHour: "12",
-					startMinute: "35",
-					endDate: "2020-11-20",
-					endHour: "14",
-					endMinute: "23",
-					regDate: "2020-07-11 13:01:34",
-					always: false,
-					type: "a",
-					brand: "드림 팩토리",
-					exposed: true,
-					image: "../../images/coupon.png"
 				}
 
 			],
