@@ -36,7 +36,7 @@ export default {
 				},
 				component: () => import('@/pages/sample/SampleEditor')
 			},
-			
+
 			{
 				path: '/sample/detail2',
 				meta : {
@@ -48,20 +48,20 @@ export default {
 				},
 			},
 
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
 			{
 				path: '/sample/pub_guide',
 				meta : {},
 				component: () => import('@/pages/sample/pub_guide')
-			},            
-			
-			
+			},
+
+
 
 			{
 				path: '/part2/SYS020100',
@@ -244,13 +244,13 @@ export default {
 				meta : {},
 				component: () => import('@/pages/part2/SYS050006')
 			},
-			
+
 			{
 				path: '/part2/SYS050007',
 				meta : {},
 				component: () => import('@/pages/part2/SYS050007')
 			},
-			
+
 			{
 				path: '/part2/SYS050008',
 				meta : {},
@@ -279,13 +279,13 @@ export default {
 				meta : {},
 				component: () => import('@/pages/part2/SYS050011')
 			},
-			
+
 			{
 				path: '/part2/SYS050012',
 				meta : {},
 				component: () => import('@/pages/part2/SYS050012')
 			},
-			
+
 			{
 				path: '/part2/SYS050013',
 				meta : {},
@@ -303,20 +303,24 @@ export default {
 				meta : {},
 				component: () => import('@/pages/part2/SYS050015')
 			},
-			
+
 			{
 				path: '/part2/SYS050015_popup',
 				meta : {},
 				component: () => import('@/pages/part2/SYS050015_popup')
-			}
-			
-						
+			},
+			{
+				path: '/part2/SYS060001',
+				meta : {},
+				component: () => import('@/pages/part2/SYS060001')
+			},
+
 	],
 
 	get routers() {
 		const routers = [];
 		const temp = this.childrens;
-		
+
 		for(let router of this.childrens){
 			router.meta.grpMenuCd = this.grpMenuCd;
 			router.meta.grpMenuNm = this.grpMenuNm;

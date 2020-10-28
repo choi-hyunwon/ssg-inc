@@ -41,7 +41,7 @@ Vue.use(VeeValidate, {
 });
 Vue.use(BootstrapVue);
 Vue.use(flatPickr);
-Vue.use(vuetify); 
+Vue.use(vuetify);
 
 // define prototypes.
 Vue.prototype.$axios = axios;
@@ -61,7 +61,7 @@ async function createVue() {
             store,
             render: h => h(App)
         }).$mount('#app');
-		
+
 	} catch (error) {
 		commonUtils.$alertUncatchedError(error);
 	}

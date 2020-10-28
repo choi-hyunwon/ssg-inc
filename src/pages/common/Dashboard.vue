@@ -420,6 +420,14 @@
                         <button class="s_btn" onclick="location.href='/part2/SYS050013'">화면보기</button>
                     </td>
                 </tr>
+                <tr>
+                    <td>SYS060001</td>
+                    <td class="left">[통계 관리] 대시보드</td>
+                    <td>
+                        <button class="s_btn" onclick="location.href='/part2/SYS050013'">화면보기</button>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
     </div>
